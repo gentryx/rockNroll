@@ -10,9 +10,20 @@ studying computer science in Jena. The code is currently not maintained.
 [1] http://de.wikipedia.org/wiki/EinStein_würfelt_nicht
 [2] http://www.althofer.de/
 
+DIRECTORY LAYOUT
+================
+
+cxxtest: 3rd party C++ test library
+database: an attempt to create a full database
+engine: the main game engine
+gui: a graphical interface to the engine
+misc: uninteresting
+paper: my report
+shellinterface: some convenience programs
+talk: my slides on the engine
+testsuites: some tests
 
 BUILDING
 ========
 
-
-
+The code is really really old. It comes with a Makefile. Run make and pray.
