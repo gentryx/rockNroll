@@ -1,0 +1,146 @@
+def multiFile(deps, &recipe)
+  deps.each do |targets, sources|
+    targets.each do |t|
+      file t => sources do |*params| 
+        yield(*params) 
+      end
+    end
+  end
+end
+
+MAIN_TARGETS = ["rockNrollPrint.pdf", "rockNrollOnline.pdf"]
+OPTIMALSTART_FIGURES = [
+  "diagrams/optimalStartingPosition/best.tex",
+  "diagrams/optimalStartingPosition/worst.tex"]
+OPTIMALSTART_FULLPLOT = "diagrams/optimalStartingPosition/fullPlot.tex"
+TOURNAMENT = [
+  "diagrams/tournament/fullPart1.tex", 
+  "diagrams/tournament/fullPart2.tex", 
+  "diagrams/tournament/summary.tex"]
+JOBRESULTS="diagrams/tournament/complete/*"
+SCHWARZ_EXAMPLES="diagrams/schwarzExamples/examples.tex"
+FARMERBOY_RATINGS="diagrams/farmerBoyRatings/ratings.tex"
+BIBTEX_SOURCE="www.bib"
+DIAGRAMS_RAW = FileList["diagrams/*.ai"]
+DIAGRAMS = DIAGRAMS_RAW.collect do |i|  
+  source = i
+  target = source.gsub(/.ai$/, '.pdf')
+  
+  #remind me to keep pdf's in sync with ai originals
+  file target => [source] do
+    puts "Please reconvert [#{source}] to [#{target}] manually. Can't do this automatically."
+    exit(1)
+  end
+
+  target
+end
+HASHPLOT="diagrams/hashSize/plot.tex"
+file HASHPLOT => ["diagrams/hashSize/plot.rb", "diagrams/hashSize/data.txt"]  do |t|
+  sh "#{t.prerequisites[0]} #{t.prerequisites[1]} >#{t.name}"
+end
+
+task :default => MAIN_TARGETS
+
+def auxFiles(texFile)
+  auxFiles = texFile.gsub(/\.tex/, '?.aux')
+  return FileList[auxFiles]
+end
+
+def runBibTex(texFile)
+  puts "----------------------------------------------------------------------"
+  puts "BIBTEX: #{texFile}"
+  puts "----------------------------------------------------------------------"
+  auxFiles(texFile).each do |i| 
+    puts "bibTexing #{i}"
+    sh "bibtex #{i}"
+    @bibTexRuns += 1
+  end
+end
+
+MAIN_DEPS = [
+    "main.tex", 
+    "Rakefile", 
+    "diagrams/screenShot.png",
+    BIBTEX_SOURCE, 
+    OPTIMALSTART_FULLPLOT, 
+    HASHPLOT, 
+    SCHWARZ_EXAMPLES, 
+    FARMERBOY_RATINGS] + 
+    OPTIMALSTART_FIGURES + TOURNAMENT + DIAGRAMS
+
+def mainPdf(target)
+  @pdfLatexRuns = 0
+  @bibTexRuns = 0
+  texFile = target.gsub(/\.pdf$/, '.tex')
+
+  multiFile auxFiles(texFile) => BIBTEX_SOURCE do
+    runBibTex(texFile)
+  end
+
+  file target => MAIN_DEPS+auxFiles(texFile) do |t|
+    texFile = target.gsub(/\.pdf$/, '.tex')
+    logfile = t.name.gsub(/\.pdf$/, '.log')
+    initialBibtexRun = true
+  
+    sh "cp main.tex #{texFile}"
+    sh "echo '\\newcommand{\\onlineMode}{foobar}' > mode.tex" if texFile =~ /Online/
+    sh "echo '\\newcommand{\\printMode}{foobar}'  > mode.tex" if texFile =~ /Print/
+
+    loop do 
+      # run pdflatex twice to get figure captions in the "list of figures" right
+      2.times { sh("pdflatex #{texFile}") }
+      @pdfLatexRuns += 2
+
+      puts "----------------------------------------------------------------------"
+      puts "pdfLatexRuns: #{@pdfLatexRuns.to_s.rjust(4)}"
+      puts "bibTexRuns:   #{@bibTexRuns.to_s.rjust(4)}"
+      puts "----------------------------------------------------------------------"
+
+      if system("grep -F 'Please (re)run BibTeX on the file(s)\nLabel(s) may have changed. Rerun to get cross-references right' #{logfile}")        
+        runBibTex(texFile)
+        puts "\n\n\nRREETTRRYY\n\n\n"
+        retry
+      else 
+        puts "\n\n\nBBRREEAAKK\n\n\n"
+        break
+      end
+    end
+    puts "texFile: #{texFile}"
+    puts "Over-/Underfull Boxes:"
+    system "grep -F 'Overfull\nUnderfull' #{logfile}"
+  end
+end
+
+MAIN_TARGETS.each { |t| mainPdf t }
+
+multiFile OPTIMALSTART_FIGURES => ["diagrams/optimalStartingPosition/massage.rb", "diagrams/optimalStartingPosition/data.txt", "diagrams/pos2tex.rb"] do |t|  
+  sh "./#{t.prerequisites[0]}"
+end
+
+file OPTIMALSTART_FULLPLOT => ["diagrams/optimalStartingPosition/plot.rb", "diagrams/optimalStartingPosition/data.txt", "diagrams/pos2tex.rb"] do |t|
+  sh "#{t.prerequisites[0]} #{t.prerequisites[1]} >#{t.name}"
+end
+
+file SCHWARZ_EXAMPLES => ["diagrams/schwarzExamples/plot.rb", "diagrams/pos2tex.rb"] do |t|
+  sh "#{t.prerequisites[0]} >#{t.name}"
+end
+
+file FARMERBOY_RATINGS => ["diagrams/farmerBoyRatings/plot.rb", "diagrams/pos2tex.rb"] do |t|
+  sh "#{t.prerequisites[0]} >#{t.name}"
+end
+
+multiFile TOURNAMENT => ["diagrams/tournament/massage.rb"]+FileList[JOBRESULTS] do |t|  
+  sh "cat #{JOBRESULTS} | ./#{t.prerequisites[0]}"
+end
+
+CLEAN_FILES = 
+  Rake::FileList["**/*~", "**/*.bak", "**/*.bbl", "**/*.out", "**/*.aux", "**/*.log", "**/*.lof", "**/*.lot", "**/*.toc", "**/*.blg"] + 
+  [OPTIMALSTART_FULLPLOT, HASHPLOT, SCHWARZ_EXAMPLES, FARMERBOY_RATINGS, "mode.tex"] +
+  OPTIMALSTART_FIGURES + 
+  MAIN_TARGETS + 
+  MAIN_TARGETS.collect { |t| t.gsub(/\.pdf/, '.tex') } +
+  TOURNAMENT
+
+task :clean do
+  rm_rf CLEAN_FILES
+end

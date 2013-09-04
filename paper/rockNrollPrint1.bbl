@@ -1,0 +1,87 @@
+\begin{thebibliography}{Wik05d}
+
+\bibitem[Bla05]{subversion}
+Jim Blandy.
+\newblock {Subversion Version Control}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://subversion.tigris.org}.
+
+\bibitem[EGV95]{designPatterns}
+Ralph~Johnson Erich~Gamma, Richard~Helm and John Vlissides.
+\newblock {\em {Design Patterns: Elements of Reusable Object-Oriented
+  Software}}.
+\newblock Addison-Wesley, 1995.
+
+\bibitem[Ess05]{tetex}
+Thomas Esser.
+\newblock {TeTex Distribution}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://tug.org/teTeX}.
+
+\bibitem[Kau05]{jeti}
+Christian Kauhaus.
+\newblock {Jenaer Cluster Technische Informatik}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://www2.informatik.uni-jena.de/cmc/racluster}.
+
+\bibitem[Llo05]{unitTests}
+Noel Llopis.
+\newblock {Exploring the C++ Unit Testing Framework Jungle}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://www.gamesfromwithin.com/articles/0412/000061.html}.
+
+\bibitem[Mat05]{ruby}
+Yukihiro Matsumoto.
+\newblock {The Object-Oriented Scripting Language Ruby}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://www.ruby-lang.org/en}.
+
+\bibitem[Tro05]{qt}
+Trolltech.
+\newblock {Qt}.
+\newblock Accessed on 28th November, 2005.
+\newblock \\\url{http://www.trolltech.com/products/qt/index.html}.
+
+\bibitem[TW05]{gnuplot}
+Colin~Kelley Thomas~Williams.
+\newblock {Gnuplot}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://www.gnuplot.info}.
+
+\bibitem[Vol05]{cxxtest}
+Erez Volk.
+\newblock {CxxTest Framework}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://cxxtest.sourceforge.net}.
+
+\bibitem[Wei05]{rake}
+Jim Weirich.
+\newblock {Rake -- Ruby Make}.
+\newblock Accessed on 29th November, 2005.
+\newblock \\\url{http://rake.rubyforge.org}.
+
+\bibitem[Wik05a]{wiki:deepBlue}
+Wikipedia.
+\newblock {Deep Blue Article}.
+\newblock Accessed on 24th November, 2005.
+\newblock \\\url{http://en.wikipedia.org/wiki/Deep_Blue}.
+
+\bibitem[Wik05b]{wiki:expectMinimax}
+Wikipedia.
+\newblock {Expect-Minimax Article}.
+\newblock Accessed on 24th November, 2005.
+\newblock \\\url{http://en.wikipedia.org/wiki/Expectiminimax_tree}.
+
+\bibitem[Wik05c]{wiki:gameTree}
+Wikipedia.
+\newblock {Game Tree Article}.
+\newblock Accessed on 24th November, 2005.
+\newblock \\\url{http://en.wikipedia.org/wiki/Game_tree}.
+
+\bibitem[Wik05d]{wiki:minimax}
+Wikipedia.
+\newblock {Minimax Article}.
+\newblock Accessed on 24th November, 2005.
+\newblock \\\url{http://en.wikipedia.org/wiki/Minimax}.
+
+\end{thebibliography}

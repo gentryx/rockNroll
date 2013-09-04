@@ -1,0 +1,5 @@
+/var/spool/sge/jeti-cl/grace/job_scripts/49315: line 3: 25581 CPU time limit exceeded (core dumped) ./tournament $1 $2 $3
+
+real	115m40.901s
+user	59m59.837s
+sys	0m0.392s

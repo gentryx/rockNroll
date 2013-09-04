@@ -1,0 +1,5 @@
+/var/spool/sge/jeti-cl/ipc654/job_scripts/49609: line 3: 26021 CPU time limit exceeded (core dumped) ./tournament $1 $2 $3
+
+real	84m11.972s
+user	52m31.769s
+sys	7m28.464s

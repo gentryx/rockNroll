@@ -1,0 +1,443 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 32.84     12.97    12.97 62756274     0.00     0.00  FarmerBoy::rateBoard(Board*)
+ 19.40     20.63     7.66 68276780     0.00     0.00  Board::cloneData(Board*)
+ 15.07     26.58     5.95 68276780     0.00     0.00  Board::move(signed char, signed char)
+ 13.60     31.95     5.37    31315     0.00     0.00  AIPlayer::_rateBoard(Board*, int)
+  3.60     33.37     1.42 68276780     0.00     0.00  Board::getNextSucc(signed char*, signed char*)
+  2.43     34.33     0.96 68276781     0.00     0.00  BoardFactory::popBoard()
+  2.38     35.27     0.94 68286059     0.00     0.00  BoardFactory::pushBoard(Board*)
+  2.13     36.11     0.84  5067505     0.00     0.00  AIPlayer::board2id(Board*)
+  1.85     36.84     0.73 67841583     0.00     0.00  Board::transposeField(signed char)
+  1.75     37.53     0.69 68276780     0.00     0.00  Board::winBlu()
+  1.54     38.14     0.61 67823779     0.00     0.00  Board::getPosBlu()
+  1.54     38.75     0.61 67823779     0.00     0.00  Board::getPosRed()
+  1.47     39.33     0.58 73353563     0.00     0.00  Board::hasNextSucc()
+  0.41     39.49     0.16  5067505     0.00     0.00  Board::initGetSucc()
+  0.00     39.49     0.00    59118     0.00     0.00  Board::getINibble(int, int)
+  0.00     39.49     0.00     9790     0.00     0.00  Board::winAny()
+  0.00     39.49     0.00     9566     0.00     0.00  genrand_int32()
+  0.00     39.49     0.00     9566     0.00     0.00  RandGen::genRandUInt32()
+  0.00     39.49     0.00     9278     0.00     0.00  Board::initGetSucc(int)
+  0.00     39.49     0.00     9278     0.00     0.00  RandGen::getDiceVal()
+  0.00     39.49     0.00     9278     0.00     0.00  AIPlayer::getNextMove(Board*, int)
+  0.00     39.49     0.00     9278     0.00     0.00  AIPlayer::getNextMove(Board*, int, int)
+  0.00     39.49     0.00     3156     0.00     0.00  getFlag(int, int)
+  0.00     39.49     0.00      720     0.00     0.00  bool std::next_permutation<signed char*>(signed char*, signed char*)
+  0.00     39.49     0.00      720     0.00     0.00  void std::__reverse<signed char*>(signed char*, signed char*, std::random_access_iterator_tag)
+  0.00     39.49     0.00      526     0.00     0.00  allKilled(signed char*)
+  0.00     39.49     0.00      526     0.00     0.00  oneOnGoal(signed char*)
+  0.00     39.49     0.00      512     0.00     0.08  Referee::run(RandGen*, Player*, Player*, Board*)
+  0.00     39.49     0.00      459     0.00     0.00  Board::doEntry(int, int, int, int, int, int, int*)
+  0.00     39.49     0.00      263     0.00     0.00  Board::initNum(int, int)
+  0.00     39.49     0.00      263     0.00     0.00  Board::initPos(signed char*, signed char*)
+  0.00     39.49     0.00      256     0.00     0.00  RandGen::RandGen(double*)
+  0.00     39.49     0.00      256     0.00     0.00  RandGen::~RandGen()
+  0.00     39.49     0.00      256     0.00     0.15  Referee::multiRun(Player*, Player*, int, Board*, double*)
+  0.00     39.49     0.00       50     0.00     0.00  FarmerBoy::setField(int, int, float)
+  0.00     39.49     0.00        7     0.00     0.00  Board::initTrivial()
+  0.00     39.49     0.00        7     0.00     0.00  Board::Board()
+  0.00     39.49     0.00        3     0.00     0.00  str2int(std::string)
+  0.00     39.49     0.00        2     0.00     0.00  int2player(int)
+  0.00     39.49     0.00        2     0.00     0.00  Player::Player(double*)
+  0.00     39.49     0.00        2     0.00     0.00  AIPlayer::setMaxDepth(int)
+  0.00     39.49     0.00        2     0.00     0.00  AIPlayer::AIPlayer(int, int, int, double*)
+  0.00     39.49     0.00        2     0.00     0.00  AIPlayer::~AIPlayer()
+  0.00     39.49     0.00        2     0.00     0.00  FarmerBoy::FarmerBoy(int, int, int, double*)
+  0.00     39.49     0.00        2     0.00     0.00  FarmerBoy::~FarmerBoy()
+  0.00     39.49     0.00        1     0.00     0.00  global constructors keyed to _ZN7RandGen10populationE
+  0.00     39.49     0.00        1     0.00     0.00  init_genrand(unsigned long)
+  0.00     39.49     0.00        1     0.00     0.00  initRandWithTime()
+  0.00     39.49     0.00        1     0.00    39.49  q3arena(int, int, int)
+  0.00     39.49     0.00        1     0.00     0.00  Board::initStatics()
+  0.00     39.49     0.00        1     0.00     0.00  Board::initSuccData()
+  0.00     39.49     0.00        1     0.00     0.00  Board::initHashWords()
+  0.00     39.49     0.00        1     0.00     0.00  Board::initPositions()
+  0.00     39.49     0.00        1     0.00     0.00  Board::initSuccDiceData()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.03% of 39.49 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.00   39.49                 main [1]
+                0.00   39.49       1/1           q3arena(int, int, int) [2]
+                0.00    0.00       3/3           str2int(std::string) [46]
+                0.00    0.00       1/1           initRandWithTime() [56]
+-----------------------------------------------
+                0.00   39.49       1/1           main [1]
+[2]    100.0    0.00   39.49       1         q3arena(int, int, int) [2]
+                0.00   39.49     256/256         Referee::multiRun(Player*, Player*, int, Board*, double*) [4]
+                0.00    0.00       1/68276781     BoardFactory::popBoard() [12]
+                0.00    0.00       1/68286059     BoardFactory::pushBoard(Board*) [13]
+                0.00    0.00     256/263         Board::initPos(signed char*, signed char*) [40]
+                0.00    0.00     256/263         Board::initNum(int, int) [39]
+                0.00    0.00       2/2           int2player(int) [47]
+                0.00    0.00       2/2           FarmerBoy::~FarmerBoy() [53]
+-----------------------------------------------
+                0.00   39.49     512/512         Referee::multiRun(Player*, Player*, int, Board*, double*) [4]
+[3]    100.0    0.00   39.49     512         Referee::run(RandGen*, Player*, Player*, Board*) [3]
+                0.00   39.49    9278/9278        AIPlayer::getNextMove(Board*, int) [5]
+                0.00    0.00    9278/68286059     BoardFactory::pushBoard(Board*) [13]
+                0.00    0.00    9790/9790        Board::winAny() [28]
+                0.00    0.00    9278/9278        RandGen::getDiceVal() [32]
+-----------------------------------------------
+                0.00   39.49     256/256         q3arena(int, int, int) [2]
+[4]    100.0    0.00   39.49     256         Referee::multiRun(Player*, Player*, int, Board*, double*) [4]
+                0.00   39.49     512/512         Referee::run(RandGen*, Player*, Player*, Board*) [3]
+                0.00    0.00     256/256         RandGen::RandGen(double*) [41]
+                0.00    0.00     256/256         RandGen::~RandGen() [42]
+-----------------------------------------------
+                0.00   39.49    9278/9278        Referee::run(RandGen*, Player*, Player*, Board*) [3]
+[5]    100.0    0.00   39.49    9278         AIPlayer::getNextMove(Board*, int) [5]
+                0.00   39.49    9278/9278        AIPlayer::getNextMove(Board*, int, int) [6]
+-----------------------------------------------
+                0.00   39.49    9278/9278        AIPlayer::getNextMove(Board*, int) [5]
+[6]    100.0    0.00   39.49    9278         AIPlayer::getNextMove(Board*, int, int) [6]
+                5.37   34.11   31315/31315       AIPlayer::_rateBoard(Board*, int) [7]
+                0.00    0.00   31315/68276780     Board::move(signed char, signed char) [8]
+                0.00    0.00   31315/68276780     Board::getNextSucc(signed char*, signed char*) [11]
+                0.00    0.00   31315/68286059     BoardFactory::pushBoard(Board*) [13]
+                0.00    0.00   40593/73353563     Board::hasNextSucc() [19]
+                0.00    0.00    9278/9278        Board::initGetSucc(int) [31]
+-----------------------------------------------
+                             68245465             AIPlayer::_rateBoard(Board*, int) [7]
+                5.37   34.11   31315/31315       AIPlayer::getNextMove(Board*, int, int) [6]
+[7]    100.0    5.37   34.11   31315+68245465 AIPlayer::_rateBoard(Board*, int) [7]
+                5.95    9.35 68245465/68276780     Board::move(signed char, signed char) [8]
+               12.97    1.13 62756274/62756274     FarmerBoy::rateBoard(Board*) [9]
+                1.42    0.00 68245465/68276780     Board::getNextSucc(signed char*, signed char*) [11]
+                0.94    0.00 68245465/68286059     BoardFactory::pushBoard(Board*) [13]
+                0.84    0.09 5067505/5067505     AIPlayer::board2id(Board*) [14]
+                0.69    0.00 68276780/68276780     Board::winBlu() [16]
+                0.58    0.00 73312970/73353563     Board::hasNextSucc() [19]
+                0.16    0.00 5067505/5067505     Board::initGetSucc() [20]
+                             68245465             AIPlayer::_rateBoard(Board*, int) [7]
+-----------------------------------------------
+                0.00    0.00   31315/68276780     AIPlayer::getNextMove(Board*, int, int) [6]
+                5.95    9.35 68245465/68276780     AIPlayer::_rateBoard(Board*, int) [7]
+[8]     38.7    5.95    9.35 68276780         Board::move(signed char, signed char) [8]
+                7.66    0.00 68276780/68276780     Board::cloneData(Board*) [10]
+                0.96    0.00 68276780/68276781     BoardFactory::popBoard() [12]
+                0.73    0.00 67841583/67841583     Board::transposeField(signed char) [15]
+-----------------------------------------------
+               12.97    1.13 62756274/62756274     AIPlayer::_rateBoard(Board*, int) [7]
+[9]     35.7   12.97    1.13 62756274         FarmerBoy::rateBoard(Board*) [9]
+                0.56    0.00 62756274/67823779     Board::getPosRed() [18]
+                0.56    0.00 62756274/67823779     Board::getPosBlu() [17]
+-----------------------------------------------
+                7.66    0.00 68276780/68276780     Board::move(signed char, signed char) [8]
+[10]    19.4    7.66    0.00 68276780         Board::cloneData(Board*) [10]
+-----------------------------------------------
+                0.00    0.00   31315/68276780     AIPlayer::getNextMove(Board*, int, int) [6]
+                1.42    0.00 68245465/68276780     AIPlayer::_rateBoard(Board*, int) [7]
+[11]     3.6    1.42    0.00 68276780         Board::getNextSucc(signed char*, signed char*) [11]
+-----------------------------------------------
+                0.00    0.00       1/68276781     q3arena(int, int, int) [2]
+                0.96    0.00 68276780/68276781     Board::move(signed char, signed char) [8]
+[12]     2.4    0.96    0.00 68276781         BoardFactory::popBoard() [12]
+                0.00    0.00       7/7           Board::initTrivial() [44]
+                0.00    0.00       7/7           Board::Board() [45]
+-----------------------------------------------
+                0.00    0.00       1/68286059     q3arena(int, int, int) [2]
+                0.00    0.00    9278/68286059     Referee::run(RandGen*, Player*, Player*, Board*) [3]
+                0.00    0.00   31315/68286059     AIPlayer::getNextMove(Board*, int, int) [6]
+                0.94    0.00 68245465/68286059     AIPlayer::_rateBoard(Board*, int) [7]
+[13]     2.4    0.94    0.00 68286059         BoardFactory::pushBoard(Board*) [13]
+-----------------------------------------------
+                0.84    0.09 5067505/5067505     AIPlayer::_rateBoard(Board*, int) [7]
+[14]     2.4    0.84    0.09 5067505         AIPlayer::board2id(Board*) [14]
+                0.05    0.00 5067505/67823779     Board::getPosRed() [18]
+                0.05    0.00 5067505/67823779     Board::getPosBlu() [17]
+-----------------------------------------------
+                0.73    0.00 67841583/67841583     Board::move(signed char, signed char) [8]
+[15]     1.8    0.73    0.00 67841583         Board::transposeField(signed char) [15]
+-----------------------------------------------
+                0.69    0.00 68276780/68276780     AIPlayer::_rateBoard(Board*, int) [7]
+[16]     1.7    0.69    0.00 68276780         Board::winBlu() [16]
+-----------------------------------------------
+                0.05    0.00 5067505/67823779     AIPlayer::board2id(Board*) [14]
+                0.56    0.00 62756274/67823779     FarmerBoy::rateBoard(Board*) [9]
+[17]     1.5    0.61    0.00 67823779         Board::getPosBlu() [17]
+-----------------------------------------------
+                0.05    0.00 5067505/67823779     AIPlayer::board2id(Board*) [14]
+                0.56    0.00 62756274/67823779     FarmerBoy::rateBoard(Board*) [9]
+[18]     1.5    0.61    0.00 67823779         Board::getPosRed() [18]
+-----------------------------------------------
+                0.00    0.00   40593/73353563     AIPlayer::getNextMove(Board*, int, int) [6]
+                0.58    0.00 73312970/73353563     AIPlayer::_rateBoard(Board*, int) [7]
+[19]     1.5    0.58    0.00 73353563         Board::hasNextSucc() [19]
+-----------------------------------------------
+                0.16    0.00 5067505/5067505     AIPlayer::_rateBoard(Board*, int) [7]
+[20]     0.4    0.16    0.00 5067505         Board::initGetSucc() [20]
+-----------------------------------------------
+                0.00    0.00   59118/59118       Board::initSuccDiceData() [61]
+[27]     0.0    0.00    0.00   59118         Board::getINibble(int, int) [27]
+-----------------------------------------------
+                0.00    0.00    9790/9790        Referee::run(RandGen*, Player*, Player*, Board*) [3]
+[28]     0.0    0.00    0.00    9790         Board::winAny() [28]
+-----------------------------------------------
+                0.00    0.00     288/9566        Board::initHashWords() [59]
+                0.00    0.00    9278/9566        RandGen::getDiceVal() [32]
+[29]     0.0    0.00    0.00    9566         genrand_int32() [29]
+-----------------------------------------------
+                0.00    0.00     288/9566        Board::initHashWords() [59]
+                0.00    0.00    9278/9566        RandGen::getDiceVal() [32]
+[30]     0.0    0.00    0.00    9566         RandGen::genRandUInt32() [30]
+-----------------------------------------------
+                0.00    0.00    9278/9278        AIPlayer::getNextMove(Board*, int, int) [6]
+[31]     0.0    0.00    0.00    9278         Board::initGetSucc(int) [31]
+-----------------------------------------------
+                0.00    0.00    9278/9278        Referee::run(RandGen*, Player*, Player*, Board*) [3]
+[32]     0.0    0.00    0.00    9278         RandGen::getDiceVal() [32]
+                0.00    0.00    9278/9566        genrand_int32() [29]
+                0.00    0.00    9278/9566        RandGen::genRandUInt32() [30]
+-----------------------------------------------
+                0.00    0.00    3156/3156        Board::initPos(signed char*, signed char*) [40]
+[33]     0.0    0.00    0.00    3156         getFlag(int, int) [33]
+-----------------------------------------------
+                0.00    0.00     720/720         Board::initPositions() [60]
+[34]     0.0    0.00    0.00     720         bool std::next_permutation<signed char*>(signed char*, signed char*) [34]
+                0.00    0.00     720/720         void std::__reverse<signed char*>(signed char*, signed char*, std::random_access_iterator_tag) [35]
+-----------------------------------------------
+                0.00    0.00     720/720         bool std::next_permutation<signed char*>(signed char*, signed char*) [34]
+[35]     0.0    0.00    0.00     720         void std::__reverse<signed char*>(signed char*, signed char*, std::random_access_iterator_tag) [35]
+-----------------------------------------------
+                0.00    0.00     526/526         Board::initPos(signed char*, signed char*) [40]
+[36]     0.0    0.00    0.00     526         allKilled(signed char*) [36]
+-----------------------------------------------
+                0.00    0.00     526/526         Board::initPos(signed char*, signed char*) [40]
+[37]     0.0    0.00    0.00     526         oneOnGoal(signed char*) [37]
+-----------------------------------------------
+                0.00    0.00     459/459         Board::initSuccDiceData() [61]
+[38]     0.0    0.00    0.00     459         Board::doEntry(int, int, int, int, int, int, int*) [38]
+-----------------------------------------------
+                0.00    0.00       7/263         Board::initTrivial() [44]
+                0.00    0.00     256/263         q3arena(int, int, int) [2]
+[39]     0.0    0.00    0.00     263         Board::initNum(int, int) [39]
+-----------------------------------------------
+                0.00    0.00       7/263         Board::initTrivial() [44]
+                0.00    0.00     256/263         q3arena(int, int, int) [2]
+[40]     0.0    0.00    0.00     263         Board::initPos(signed char*, signed char*) [40]
+                0.00    0.00    3156/3156        getFlag(int, int) [33]
+                0.00    0.00     526/526         allKilled(signed char*) [36]
+                0.00    0.00     526/526         oneOnGoal(signed char*) [37]
+-----------------------------------------------
+                0.00    0.00     256/256         Referee::multiRun(Player*, Player*, int, Board*, double*) [4]
+[41]     0.0    0.00    0.00     256         RandGen::RandGen(double*) [41]
+-----------------------------------------------
+                0.00    0.00     256/256         Referee::multiRun(Player*, Player*, int, Board*, double*) [4]
+[42]     0.0    0.00    0.00     256         RandGen::~RandGen() [42]
+-----------------------------------------------
+                0.00    0.00      50/50          FarmerBoy::FarmerBoy(int, int, int, double*) [52]
+[43]     0.0    0.00    0.00      50         FarmerBoy::setField(int, int, float) [43]
+-----------------------------------------------
+                0.00    0.00       7/7           BoardFactory::popBoard() [12]
+[44]     0.0    0.00    0.00       7         Board::initTrivial() [44]
+                0.00    0.00       7/263         Board::initPos(signed char*, signed char*) [40]
+                0.00    0.00       7/263         Board::initNum(int, int) [39]
+-----------------------------------------------
+                0.00    0.00       7/7           BoardFactory::popBoard() [12]
+[45]     0.0    0.00    0.00       7         Board::Board() [45]
+                0.00    0.00       1/1           Board::initStatics() [57]
+-----------------------------------------------
+                0.00    0.00       3/3           main [1]
+[46]     0.0    0.00    0.00       3         str2int(std::string) [46]
+-----------------------------------------------
+                0.00    0.00       2/2           q3arena(int, int, int) [2]
+[47]     0.0    0.00    0.00       2         int2player(int) [47]
+                0.00    0.00       2/2           FarmerBoy::FarmerBoy(int, int, int, double*) [52]
+-----------------------------------------------
+                0.00    0.00       2/2           AIPlayer::AIPlayer(int, int, int, double*) [50]
+[48]     0.0    0.00    0.00       2         Player::Player(double*) [48]
+-----------------------------------------------
+                0.00    0.00       2/2           AIPlayer::AIPlayer(int, int, int, double*) [50]
+[49]     0.0    0.00    0.00       2         AIPlayer::setMaxDepth(int) [49]
+-----------------------------------------------
+                0.00    0.00       2/2           FarmerBoy::FarmerBoy(int, int, int, double*) [52]
+[50]     0.0    0.00    0.00       2         AIPlayer::AIPlayer(int, int, int, double*) [50]
+                0.00    0.00       2/2           Player::Player(double*) [48]
+                0.00    0.00       2/2           AIPlayer::setMaxDepth(int) [49]
+-----------------------------------------------
+                0.00    0.00       2/2           FarmerBoy::~FarmerBoy() [53]
+[51]     0.0    0.00    0.00       2         AIPlayer::~AIPlayer() [51]
+-----------------------------------------------
+                0.00    0.00       2/2           int2player(int) [47]
+[52]     0.0    0.00    0.00       2         FarmerBoy::FarmerBoy(int, int, int, double*) [52]
+                0.00    0.00      50/50          FarmerBoy::setField(int, int, float) [43]
+                0.00    0.00       2/2           AIPlayer::AIPlayer(int, int, int, double*) [50]
+-----------------------------------------------
+                0.00    0.00       2/2           q3arena(int, int, int) [2]
+[53]     0.0    0.00    0.00       2         FarmerBoy::~FarmerBoy() [53]
+                0.00    0.00       2/2           AIPlayer::~AIPlayer() [51]
+-----------------------------------------------
+                0.00    0.00       1/1           __do_global_ctors_aux [128]
+[54]     0.0    0.00    0.00       1         global constructors keyed to _ZN7RandGen10populationE [54]
+-----------------------------------------------
+                0.00    0.00       1/1           initRandWithTime() [56]
+[55]     0.0    0.00    0.00       1         init_genrand(unsigned long) [55]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[56]     0.0    0.00    0.00       1         initRandWithTime() [56]
+                0.00    0.00       1/1           init_genrand(unsigned long) [55]
+-----------------------------------------------
+                0.00    0.00       1/1           Board::Board() [45]
+[57]     0.0    0.00    0.00       1         Board::initStatics() [57]
+                0.00    0.00       1/1           Board::initSuccDiceData() [61]
+                0.00    0.00       1/1           Board::initSuccData() [58]
+                0.00    0.00       1/1           Board::initHashWords() [59]
+                0.00    0.00       1/1           Board::initPositions() [60]
+-----------------------------------------------
+                0.00    0.00       1/1           Board::initStatics() [57]
+[58]     0.0    0.00    0.00       1         Board::initSuccData() [58]
+-----------------------------------------------
+                0.00    0.00       1/1           Board::initStatics() [57]
+[59]     0.0    0.00    0.00       1         Board::initHashWords() [59]
+                0.00    0.00     288/9566        genrand_int32() [29]
+                0.00    0.00     288/9566        RandGen::genRandUInt32() [30]
+-----------------------------------------------
+                0.00    0.00       1/1           Board::initStatics() [57]
+[60]     0.0    0.00    0.00       1         Board::initPositions() [60]
+                0.00    0.00     720/720         bool std::next_permutation<signed char*>(signed char*, signed char*) [34]
+-----------------------------------------------
+                0.00    0.00       1/1           Board::initStatics() [57]
+[61]     0.0    0.00    0.00       1         Board::initSuccDiceData() [61]
+                0.00    0.00   59118/59118       Board::getINibble(int, int) [27]
+                0.00    0.00     459/459         Board::doEntry(int, int, int, int, int, int, int*) [38]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [54] global constructors keyed to _ZN7RandGen10populationE [44] Board::initTrivial() [30] RandGen::genRandUInt32()
+  [47] int2player(int)        [58] Board::initSuccData()  [41] RandGen::RandGen(double*)
+  [55] init_genrand(unsigned long) [59] Board::initHashWords() [42] RandGen::~RandGen()
+  [29] genrand_int32()        [60] Board::initPositions()  [3] Referee::run(RandGen*, Player*, Player*, Board*)
+  [56] initRandWithTime()     [15] Board::transposeField(signed char) [4] Referee::multiRun(Player*, Player*, int, Board*, double*)
+  [33] getFlag(int, int)      [61] Board::initSuccDiceData() [7] AIPlayer::_rateBoard(Board*, int)
+   [2] q3arena(int, int, int)  [8] Board::move(signed char, signed char) [5] AIPlayer::getNextMove(Board*, int)
+  [46] str2int(std::string)   [28] Board::winAny()         [6] AIPlayer::getNextMove(Board*, int, int)
+  [36] allKilled(signed char*) [16] Board::winBlu()       [49] AIPlayer::setMaxDepth(int)
+  [37] oneOnGoal(signed char*) [38] Board::doEntry(int, int, int, int, int, int, int*) [14] AIPlayer::board2id(Board*)
+  [12] BoardFactory::popBoard() [39] Board::initNum(int, int) [50] AIPlayer::AIPlayer(int, int, int, double*)
+  [13] BoardFactory::pushBoard(Board*) [40] Board::initPos(signed char*, signed char*) [51] AIPlayer::~AIPlayer()
+  [27] Board::getINibble(int, int) [10] Board::cloneData(Board*) [43] FarmerBoy::setField(int, int, float)
+  [11] Board::getNextSucc(signed char*, signed char*) [17] Board::getPosBlu() [9] FarmerBoy::rateBoard(Board*)
+  [19] Board::hasNextSucc()   [18] Board::getPosRed()     [52] FarmerBoy::FarmerBoy(int, int, int, double*)
+  [31] Board::initGetSucc(int) [45] Board::Board()        [53] FarmerBoy::~FarmerBoy()
+  [20] Board::initGetSucc()   [48] Player::Player(double*) [34] bool std::next_permutation<signed char*>(signed char*, signed char*)
+  [57] Board::initStatics()   [32] RandGen::getDiceVal()  [35] void std::__reverse<signed char*>(signed char*, signed char*, std::random_access_iterator_tag)

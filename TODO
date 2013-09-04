@@ -1,0 +1,97 @@
+*) speed up id copy in hashmap.insert (use uint32 assignments)
+*) tune the board operator== for speed
+*) check, if it's faster to look for the transposed boad in the
+   hashmap, too.
+*) check, if it's faster to use 64bit ids rather than 96bit long ones
+   (lesser memory pressure but higher arithmetic load)
+*) in board.cpp both, red and blue, currently use the same
+   hashIndex 0. They should use 0 and 6. This is currently disabled
+   for testing purposes.
+*) bei baumsuche sollte die restsuchtiefe für stellungsbewertung nicht
+   von der aktuellen suchfunktion abhängen, sondern von dem minimum
+   der restsuchtiefen der stellungen, von denen die aktuelle bewertung
+   abhängt.
+*) state machine generator
+*) inline wrapper method generator
+*) wrapper classes for qt bindings
+*) implement ==operator for class Board (usefull for unit testing)
+*) use std. probs 1/6 if none (=0) is given
+*) move RandGen class from mersenne.x to own files
+*) implement proper engine interface for the outside (currently not
+   possible, 'cause all the methods are inline...)
+*) extend the wrapping from mere methods to a class
+   with run() and wait() methods.
+
+todo:
+  threadwrapper.cpp 
+  threadwrapper.h
+
+*) implement and test farmer boy:
+
+todo:
+  farmerboy.cpp
+  farmerboy.h
+
+*) variable prob. update
+done:
+  compilechain.h
+  globals.h
+  headers.h
+  stdinplayer.cpp
+  stdinplayer.h
+  board.cpp
+  board.h
+  boardfactory.cpp
+  boardfactory.h
+  threadwrapper.cpp 
+  threadwrapper.h
+  player.cpp
+  player.h
+  farmerboy.cpp
+  farmerboy.h
+  hashmap.cpp
+  hashmap.h
+  mrrandom.cpp
+  mrrandom.h
+  mersenne.cpp 
+  mersenne.h
+  referee.cpp 
+  referee.h
+  mrmonte.cpp 
+  mrmonte.h
+  mrblack.cpp 
+  mrblack.h
+  aiplayer.cpp 
+  aiplayer.h
+
+pending:
+  -
+
+
+
+*) floating point to int conversions -> see amd p. 41
+*) use a global makefile-structure like colinux
+*) rewrite toolbox as a class with static methods and allow only
+   certain external methods to access sensitive data from the engine
+*) write skin classes (qrguiboard + qrguidice access them for
+   sprite-drawing), they should sport some custom painting methods for
+   sprites and a dialog box for configuration, which takes as a
+   parameter and returns a xml-representation of the selected config
+*) qraiplayer should take a xmp-player-config in the constuctor
+*) write factory methods for the gameevents, which force the callee to
+   supply all necessary data.
+*) update Makefile.cxxtest to include engine sources
+*) remove changelog entries from engine
+*) implement common base class for all gameEvent-handling classes 
+*) unique naming for substates (StateIdle->QRGUIDiceStateIdle)
+*) change sourcecode comments into source-doc-wossname style
+*) clear hashmaps at  startup
+*) write unit tests for engine
+*) mark const methods !!!
+*) move comments from .h to .cpp files
+*) test "return -res;" in mrmonte
+*) implement farmerboy
+*) implement common baseclass for qrdice, qrreferee & qrplayer
+*) use and init mersenne twister in qrguidice
+*) use const functions in engine
+*) don't use hardcoded source files in Makefile.cxxtest - include rockNrollGUI.pro

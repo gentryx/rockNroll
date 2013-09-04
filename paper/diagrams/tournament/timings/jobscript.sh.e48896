@@ -1,0 +1,5 @@
+/var/spool/sge/jeti-cl/emma/job_scripts/48896: line 3: 27945 CPU time limit exceeded (core dumped) ./tournament $1 $2 $3
+
+real	64m56.171s
+user	31m0.136s
+sys	29m0.093s

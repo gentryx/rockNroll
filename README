@@ -1,0 +1,18 @@
+ABOUT
+=====
+
+rockNroll is an engine for the 2-player board game "EinStein Würfelt
+nicht"[1] by Prof. Dr. Ingo Althöfer[2]. I wrote the code while I was
+studying computer science in Jena. The code is currently not maintained.
+
+-Andreas Schäfer
+
+[1] http://de.wikipedia.org/wiki/EinStein_würfelt_nicht
+[2] http://www.althofer.de/
+
+
+BUILDING
+========
+
+
+

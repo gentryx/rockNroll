@@ -1,0 +1,27 @@
+\select@language {english}
+\select@language {english}
+\contentsline {chapter}{\numberline {1}\textbf {Road Map}}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}\textbf {Introduction to the Game}}{7}{chapter.2}
+\contentsline {chapter}{\numberline {3}\textbf {Engine Design}}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}\textbf {Minimax}}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}\textbf {The Monte Carlo Method}}{14}{section.3.2}
+\contentsline {section}{\numberline {3.3}\textbf {Heuristics}}{16}{section.3.3}
+\contentsline {chapter}{\numberline {4}\textbf {Infrastructure}}{19}{chapter.4}
+\contentsline {chapter}{\numberline {5}\textbf {AI Implementation}}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}\textbf {Board}}{23}{section.5.1}
+\contentsline {section}{\numberline {5.2}\textbf {Player}}{24}{section.5.2}
+\contentsline {section}{\numberline {5.3}\textbf {StdInPlayer}}{24}{section.5.3}
+\contentsline {section}{\numberline {5.4}\textbf {AIPlayer}}{24}{section.5.4}
+\contentsline {section}{\numberline {5.5}\textbf {Referee}}{26}{section.5.5}
+\contentsline {section}{\numberline {5.6}\textbf {BoardFactory}}{26}{section.5.6}
+\contentsline {section}{\numberline {5.7}\textbf {RandGen}}{27}{section.5.7}
+\contentsline {section}{\numberline {5.8}\textbf {HashMap}}{27}{section.5.8}
+\contentsline {section}{\numberline {5.9}\textbf {ThreadWrapper}}{28}{section.5.9}
+\contentsline {chapter}{\numberline {6}\textbf {Benchmarks}}{29}{chapter.6}
+\contentsline {section}{\numberline {6.1}\textbf {Optimal Setup of Stones}}{29}{section.6.1}
+\contentsline {section}{\numberline {6.2}\textbf {Tournament}}{30}{section.6.2}
+\contentsline {section}{\numberline {6.3}\textbf {Tweaking the Hash Map Size}}{39}{section.6.3}
+\contentsline {chapter}{\numberline {7}\textbf {GUI Implementation}}{41}{chapter.7}
+\contentsline {chapter}{\numberline {8}\textbf {Outlook}}{43}{chapter.8}
+\contentsline {chapter}{\numberline {A}\textbf {References}}{45}{appendix.A}
+\contentsline {section}{\numberline {A.1}\textbf {Bibliography}}{45}{section.A.1}

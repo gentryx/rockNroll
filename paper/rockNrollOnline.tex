@@ -1,0 +1,1491 @@
+% Chapter vs. chapter (section, subsection)
+% itemize und enumerate: , vs. . und Groß vs klein
+% h1 testbild, dri bilder
+% 4 dezember: james bond
+%
+% FIXME:
+%   - fragen an ingo:
+%     - sind die namen alle richtig?
+%     - wie steht's mit assoziativität in hashmaps?
+%   - ablauf dia von baum suche
+%   - seminar.pdf ins netz und als link angeben?
+%------------------------------------------------------------------------
+
+% \documentclass[american,12pt,titlepage,a4paper,oneside]{scrreprt}
+% \usepackage[T1]{fontenc}%
+% \usepackage{ae,aecompl,babel,booktabs,tabularx,pdflscape,amssymb,graphicx,array}%
+% \usepackage[pdfpagelabels]{hyperref}%
+% \usepackage{hypcap}%
+% \hypersetup{plainpages=false,pdfpagemode=None,pdfstartview=FitH}%
+
+%------------------------------------------------------------------------
+
+% Figures/tables inside the text
+%     Sometimes you don't want a figure or table to use the whole
+%     width of the page. You can then use \usepackage{wrapfig} and you
+%     will get the environments \begin{wrapfigure}[A]{B}[C]{D}
+%     ... \end{wrapfigure} och \begin{wraptable}[A]{B}[C]{D}
+%     ... \end{wraptable} gdär 
+
+%         * A - Not necessary. Number of lines to be made shorter.
+%         * B - Necessary. Placing: r, l, i, o, R, L, I, O where capitals=floating figure, lower case=figure HERE, r=right, l=left, i=inside, o=outside.
+%         * C - Not necessary. How far the figure should stretch into the margin..
+%         * D - Necessary. Width of figure. 
+
+% Colors
+%     Use the package color. Here's a short example of how to use it:
+
+% \documentclass{article}
+% \usepackage[latin1]{inputenc} % Fixa åäö
+% \usepackage{color}
+% \definecolor{pink}{rgb}{1,0.5,0.5} % color values Red, Green, Blue
+
+% \begin{document}
+% \pagecolor{black} % Background color
+% \color{white}     % Text color
+
+% I think I'm in \textcolor{rosa}{love} with \LaTeX\.
+% \end{document}
+
+
+% How to place figures where you want them
+%     The package here has been removed from CTAN. Instead you should use a ! in front of the positioning parameter. I.e:
+
+% \documentclass{article}
+% \usepackage[latin1]{inputenc} % Fixa åäö
+% \usepackage{here}
+% \usepackage{graphicx}
+% \begin{document}
+% \begin{figure}[!h] % Will not be floating.
+%   \begin{center}
+%   \includegraphics{graph.eps}
+%   \caption{Exciting graph}
+%   \end{center}
+% \end{figure}
+% \end{document}
+
+\newcommand{\fixme}[1]{\footnote{\textbf{FIXME:} #1}}
+\newcommand{\rockNroll}{Rock'n'Roll }
+\newcommand{\rockNrolls}{Rock'n'Roll's }
+
+\newcommand{\testref}[1]{%
+  \emph{\csname r@#1 \endcsname}~\vref{#1}%
+}%
+
+\documentclass[
+a4paper,            %% papierformat a4
+12pt,               %% schriftgröße 12pt
+twoside,            %% zweiseitiger druck
+openright,          %% kapitel beginnen auf einer rechten seite
+cleardoubleempty,   %% wirklich leere leerseiten 
+pagesize,           %% papiergröße in pdf eintragen
+halfparskip,        %% paragraphen nicht einrücken und keine
+                    %% ellenlangen leerzeilenorgien
+pointlessnumbers,   %% in der gliederung keine punkte hinter zahlen
+tablecaptionabove   %% na was wohl? tabellenüberschiften über selbige
+]{scrreprt}         %% basisklasse: koma script report
+
+\usepackage{umlaut,t1enc}
+\usepackage[german,english]{babel}
+%%\usepackage{mathptmx}
+
+\usepackage{helvet}  %% helvetica als serifenlose schiftart festlegen
+\usepackage{charter} %% bitstream charter als serifenschiftart festlegen
+
+\usepackage{scrpage2}
+\usepackage{graphicx}
+
+\usepackage{layout}              % Anzeige der Seitenparameter mit \layout 
+
+\usepackage{subfigure} %% in abbildungen mehrere bilder zusammen packen
+\usepackage{amsmath}   %% umgebungen wie equation* bereitstellen
+\usepackage{amssymb}   %% symbole wie \mathbb
+\usepackage{pdflscape} %% landscape environment
+\usepackage{tabularx}  %% 
+\usepackage{ltxtable}  %% vereinigt die fähigkeiten von tabularx und
+                       %% supertabular 
+                       %% -tabularx: tabellen bei denen man mit
+                       %%  \begin{tabularx}{w}{\X\X . . .\} die  
+                       %%  gesamt-breite aus w setzen kann
+                       %% -supertabular: mehrseitige tabellen
+\usepackage{bibgerm}
+\usepackage{varioref}  %% per \vref referenzen mit verbesserten seiten
+                       %% hinweisen
+\usepackage{booktabs}  %% bessere tabellen durch ``löchrige'' midrules
+\usepackage{moreverb}  %% Via \verbatimtabinput[8]{foobar.rb} können
+                       %% sourcecode files eingefügt werden
+\usepackage{url}
+
+\usepackage{rotating}  %% turn environment (z.B. für Y-Achsen Beschriftungen)
+
+\usepackage{bibgerm}
+\usepackage{bibtopic}
+
+\usepackage{threeparttable} %% abbildungen mit fußnoten 
+\usepackage{dcolumn}     %% in auf dezimaltrennzeichen ausrichten mit
+                       %% neuem spaltentyp D
+\usepackage{pgf,pgfarrows,pgfnodes} %% befehle zum malen aus dem
+                                %% beamer package
+
+\usepackage[
+pdftitle={\rockNroll A Cross-Platform Engine for the Board
+  Game EinStein},pdfauthor={Andreas Schaefer}, 
+pdfkeywords={EinStein, Game theory, decision theory, discrete
+  optimization, Monte Carlo Method, Minimax, game tree, game engine}]{hyperref} %% links in
+                                %% pdf dateien und \nameref referenzen 
+
+\pagestyle{useheadings}
+\automark[section]{chapter}
+
+% \typearea[1cm]{0} % bindekorrektur
+%------------------------------------------------------------------------
+
+\DeclareMathOperator{\xor}{XOR}
+\DeclareMathOperator{\hash}{hash}
+\DeclareMathOperator{\hashWord}{hashWord}
+\DeclareMathOperator{\position}{pos}
+\DeclareMathOperator{\rating}{rating}
+\DeclareMathOperator{\fieldRatings}{fieldRg }
+
+\newcommand{\board}{\texttt{Board} }
+\newcommand{\player}{\texttt{Player} }
+\newcommand{\zitat}[2]{\begin{quote}\textit{#1}\\\textbf{#2}\end{quote}}
+\newcommand{\blackBox}[1]{\begin{pgfpicture}{0cm}{0cm}{15.6cm}{1.4cm}
+    \pgfmoveto{\pgfxy(0, 0.2)}
+    \pgflineto{\pgfxy(0, 0.7)}
+    \pgfcurveto{\pgfxy(0, 0.8)}{\pgfxy(0.1, 0.8)}{\pgfxy(0.1, 0.8)}
+    \pgflineto{\pgfxy(15.5, 0.8)}
+    \pgfcurveto{\pgfxy(15.6, 0.8)}{\pgfxy(15.6, 0.7)}{\pgfxy(15.6, 0.7)}
+    \pgflineto{\pgfxy(15.6, 0.1)}
+    \pgfcurveto{\pgfxy(15.6, 0.0)}{\pgfxy(15.5, 0.0)}{\pgfxy(15.5, 0.0)}
+    \pgflineto{\pgfxy(0.1, 0.0)}
+    \pgfcurveto{\pgfxy(0.0, 0.0)}{\pgfxy(0.0, 0.1)}{\pgfxy(0.0, 0.1)}
+    \pgffill  
+    \pgfputat{\pgfxy(0.1, 0.4)}{\pgfbox[left,center]{\color{white}\verb§#1§}}
+\end{pgfpicture}
+}
+
+\include{mode}
+
+\flushbottom % unterste zeilen auf gegenüberliegenden seiten auf
+             % gleiche höhe bringen
+
+\newcommand{\logoWidth}{17.5cm}
+
+\ifx\onlineMode\undefined
+\extratitle{
+  \begin{pgfpicture}{0cm}{0cm}{\logoWidth}{\logoWidth}
+    \pgfimage[height=\logoWidth]{diagrams/rockNrollLogo}
+  \end{pgfpicture}
+}
+\fi
+
+
+
+\titlehead{ 
+{\large Friedrich Schiller University Jena \hfill Winter Term~2005/2006}\\
+Faculty of Mathematics and Computer Science\\
+07743 Jena, Germany
+}
+\subject{Student Research Project}
+\title{
+  \rockNroll\\
+  \bigskip 
+  \large 
+  A Cross-Platform Engine for the Board Game\\``EinStein würfelt nicht''\texttrademark
+}
+\date{\textbf{\today}}
+\author{Andreas Schäfer\thanks{\href{mailto:gentryx@gmx.de}{gentryx@gmx.de}}}
+
+\publishers{
+  Prof. Dr. Ingo Althöfer (Supervisor)\\
+  Prof. Dr. Wilhelm Rossak (Supervisor)\\
+}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+%\listoftables
+%\listoffigures  
+
+\chapter{\textbf{Road Map}}
+\label{chap:roadMap}
+In 2004, Ingo Althöfer invented the highly addictive board game
+``EinStein würfelt nicht''\texttrademark\ (called EinStein for short in
+the following). Its key features are relatively short runs and a unique
+mixture of chance and strategy. Particularly, the optimal strategy is
+not obvious and since he is the chair of mathematical optimization, there was
+soon a lively debate at the faculty, how to place the stones, how to
+play the opening, where to defend and when to capture. Despite its
+straightforward rules, the exact analysis of this game is rather
+complex (read: compute intensive). To cast light on these problems, he
+needed some means of analysis: a game engine or -- more euphonious --
+artificial intelligence which could play EinStein well. Since I study
+computer science and have always been interested in maths and game
+theory, I took on the offer to code the engine as a student project.
+This task included the mathematical/theoretical analysis of the game,
+the realization of the therefrom distilled algorithms in a computer
+program, and a sufficient tuning of parameters.
+
+The acceptance term was that it should win at least 10 out of 20 games
+against Dr. Stefan Schwarz -- the strongest player at that
+time\footnote{Stefan has impressively defended this title at the
+  EinStein tournament during the ``Sternstunden Science Night'' in
+  Jena on 18th November 2005. He won the finals against Rico Walter by
+  a great margin (see
+  \url{http://www.3-hirn-verlag.de/einstein-turnier-jena.html}).} --
+at the end of the term. The surprising result was that \rockNroll won
+17-3 and proved that sometimes even computers have the luck of the
+devil\footnote{Incidentally the strength of \rockNroll did not rub off
+  on me. During the ``Sternstunden EinStein Tournament'' Stefan defeated
+  me (not \rockNroll) by 10-0.}.
+
+The chapters of this report closely relate to my workflow while
+designing the program. In \vnameref{chap:intro} the rules of the game
+are explained. \vnameref{chap:design} presents the blueprints of the
+algorithms built into the engine and \nameref{chap:infrastructure}
+includes a description of the tools used during the implementation.
+The rubber meets the road in \vnameref{chap:implementation}, where
+structural and technical details of the source code are given.  To
+fine-tune \rockNrolls camshafts, the
+chapter~\vnameref{chap:benchmarks} deals with the right setting of the
+algorithm parameters.  Finally, in \vnameref{chap:guiImplementation} a
+short description of the additional, graphical user interface (GUI) is
+given.
+
+If you take fancy to the game while reading this document: A real
+world version of EinStein can be purchased at the 3-Hirn-Verlag
+\url{http://www.3-hirn-verlag.de}.
+
+\section*{Remarks}
+In the following, a number of different computer players will be
+investigated.  For each there are some parameters to be set. To
+prevent confusion a certain notation is used for each. An example:
+\verb§FooBar(param1, param2)§. In this case, \verb§FooBar§ would be
+the heuristic (and class name) of the player. \verb§param1§ etc. are the
+necessary parameters for the object creation. The class can be looked
+up in Section~\vref{sec:aiplayer}.  For each class there is a subsection
+that will explain which parameters are needed and what they mean.
+
+Although the original EinStein is available in a number of different
+colors, I will assume that the only two colors used will be red and
+blue. Sometimes I will refer to the players by their color (e.g. the
+red player or Red) and -- for symmetry in name length -- shorten the
+blue player just to Blu.
+
+\section*{Acknowledgments}
+This work would never have been become what it is if there hadn't been
+so many people to guide me. Thank you:
+\begin{description}
+\item[Ingo Althöfer] for the game itself, the opportunity to work on this
+project, his patient support and his suggestions.
+\item[Stefan Schwarz] for his clever heuristic and brave sparring matches.
+\item[Christian Kauhaus] for the never-ending computing time on the
+  JETI-CL (Jenaer Cluster Technische Informatik~\cite{jeti}) and his
+  innumerable tips on cluster computing practice.
+\item[Jörg Sameith] for repeatedly explaining the details of XOR Hashing.
+\item[Georg Schnatzke] for pointing me to the Monte Carlo approach and its
+application in game theory.
+\item[Erich Novak] for his introduction into Monte Carlo Methods and pseudo random number
+generators.
+\item[Stefan Meyer-Kahlen] for explaining his use of the hybrid hash map
+approach in his chess program Shredder.
+\end{description}
+
+\chapter{\textbf{Introduction to the Game}}
+\label{chap:intro}
+EinStein's rules are straightforward: It is played on a $5\times5$
+board. Each player has six stones numbered from one to six. At the
+beginning the players place their stones in opposite corners.  Red
+starts in the upper left, Blue in the lower right corner (Fig.
+\ref{fig:einSteinKeyPoints:setup}). Their goal is to either reach the
+opposite corner with one stone or to capture all the enemy's stones.
+They move alternatingly and determine which stone to move by dicing.
+It is not allowed to pass a move. Red's stones may only move right,
+down and down-right. Blue moves to the opposite directions. It is
+allowed to capture both the enemy's and own pieces. Surprisingly, this
+ability to self-capture is important to increase mobility. If the
+number of a stone which is not on the board anymore is rolled, the
+player can choose the stone with the next higher or lower number on
+the board. Figure \vref{fig:einSteinKeyPoints:med} shows such a
+situation. Blue has rolled a three and, since three and four are
+already missing on the board, she can now either move her five or her
+two. A player has won when he has either reached his goal or captured
+all the enemy's pieces.
+
+For an in-depth introduction (in German) refer to
+\url{http://www.3-hirn-verlag.de/MasterGame/regel.html}
+
+\begin{figure} 
+\centering
+\subfigure[Red places his stones in the six upper left fields, Blue
+uses the lower right fields. Their goals lie in the opposite
+corners. Each player has to move in one of the three directions
+towards his goal.] {
+  \label{fig:einSteinKeyPoints:setup}
+  \includegraphics[scale=0.35]{diagrams/board_setup}
+}
+\hspace{0.2cm}
+\subfigure[A typical start setting. Red rolled a six and may now either
+capture his three, capture his five or move to the free field
+diagonally below.] {
+    \includegraphics[scale=0.35]{diagrams/board_start}
+}
+
+\subfigure[Here is an advanced game. The dice shows a three which
+Blue has already lost. Her adjacent numbers on the board are the two
+and five. Her legal moves are indicated by the arrows.] {
+  \label{fig:einSteinKeyPoints:med}
+  \includegraphics[scale=0.35]{diagrams/board_med}
+}
+\hspace{0.2cm}
+\subfigure[It payed off for Blue to move the two. After Red moved his
+three directly before his goal, she rolled a two and won the game.] {
+  \includegraphics[scale=0.35]{diagrams/board_end}
+}
+\caption[EinStein Key Points]{\label{fig:einSteinKeyPoints}Key points during an EinStein game.}
+\end{figure}
+
+
+\chapter{\textbf{Engine Design}}
+\label{chap:design}
+The best way to play the game would be to build a database
+containing every possible situation on the board and compute for each
+the optimal move. For games like Nine Men's Morris this has already be
+done. The problem with EinStein is that the number of different
+situations is far too large.
+
+Besides the database, there are three major approaches for building a
+game engine. The probably best known is Minimax which would ideally
+investigate every possibility in the game tree and therefore could
+yield the exact solution. The Monte Carlo Method tries to get round of
+the immense calculation costs by using cheap random experiments for an
+estimation.  Eventually the third, much more colorful family is that
+of the heuristics. Often they embody specialized rules of thumb and
+are generally required by the former two.
+
+\section{\textbf{Minimax}}
+\label{sec:minimax}
+Minimax, also known as Game Tree Search~\cite{wiki:minimax}, is a brute
+force method for solving this decision problem. The Game
+Tree~\cite{wiki:gameTree} is a directed graph whose vertices are
+made of the positions in a game and whose edges correspond to the
+legal moves which lead from position to position. The leaves of this
+tree are the terminal positions.  When large numbers are assigned to those
+where Red wins and low values to those favoring Blue, Red will always
+seek high-rated positions and vice versa. Red becomes the maximizing
+player, Blu the minimizing player.
+
+Since the players take turns, one can divide the tree into levels
+which correspond to the players on the move. Because of the players
+goals, each level is either a minimizing or a maximizing level which
+gives the method's name. A minimizing node's value is the least value
+of its descendants. Figure~\vref{fig:treesearch:basics} illustrates
+the backward propagation of values from the leaves to the top. For the
+sake of simplicity I removed the need for minimizing and maximizing
+nodes by using only maximizing nodes.
+Figure~\vref{fig:treesearch:maxOnly} shows how their values are
+inverted when they are forwarded upwards. This variation is also known
+as Negamax Search.
+
+\begin{figure} 
+\centering
+ \includegraphics[scale=0.60]{diagrams/treesearchBasics}
+\caption[Minimax Basics]{\label{fig:treesearch:basics} The final value
+  of a board is determined by the leaves of the game tree. Depending on
+  which player is on the move, either the minima or maxima are
+  propagated upwards.  The arrows mark the path on which the final
+  result -- the six -- is moved upwards.}
+\end{figure}
+
+\begin{figure} 
+\centering
+ \includegraphics[scale=0.60]{diagrams/treesearchMaxOnly}
+\caption[From Minimax to Max Only]{\label{fig:treesearch:maxOnly} In
+  contrast to Figure \ref{fig:treesearch:basics}, only maximizing
+  nodes are used here. The numbers outside the nodes are the
+  inverted values moved upwards. Notice that, depending on the depth,
+  the heuristic leaves have to be inverted. In \rockNroll this happens
+  automatically because the board is being flipped after each move.}
+\end{figure}
+
+The tree usually grows exponentially in depth and therefore seldom the
+whole tree can be searched. Rather it is rather cut off at a certain
+depth.  Those artificial leaves have no children to gather the rating
+from, so they are rated by a heuristic. The level at which this cutoff
+is performed is called \emph{search depth}\footnote{The definition of
+  depth used throughout this document might be confusing: When a
+  player rates his boards using a search depth of 0, this means that
+  every direct successor of the root node is evaluated via a
+  heuristic. Generally this is known as ``depth 1'' search.  In my
+  opinion this doesn't make much sense because of two reasons: Firstly
+  this would leave depth 0 undefined (which would be unsatisfying --
+  clearly 0 is a natural number). Secondly this confuses the process
+  of \emph{board evaluation} with the process of \emph{move choice}.
+  Both are similar, but still not the same. \emph{move choice} means
+  the enumeration of each legal move and the choice of the best one
+  among them. \emph{board evaluation} is the process undertaken to get
+  to rate a certain move. An example: According to the classic
+  definition, the random player \verb§MrRandom§ performs a ``depth 1''
+  search by simply enumerating every move and assigning random values
+  to the moves. According to my definition this would be a ``depth 0''
+  search which sounds a bit more sensible in my humble opinion.  If
+  you don't trust this, refer to the implementation
+  Chapter~\vref{chap:implementation} (source code is just a very
+  formal way of defining algorithms) and see how they differ and
+  where they belong. If you still don't trust me, please just increase
+  all depths given in this report by one.}.  For \emph{good} models it
+can be proven that the higher the search depth is, the more accurate
+the rating of the top level nodes will become. In games like chess the
+exponential growth can often be mitigated by using alpha-beta pruning.
+This means essentially to leave out unattractive branches by proving
+that they wouldn't be played anyway. This allows much higher search
+depths and is surely one of the reasons for Deep Blue's success
+against Kasparov~\cite{wiki:deepBlue}.  Unlike chess however, EinStein
+is highly randomized. This effectively prevents most (but not all)
+pruning since the dice might still enforce certain moves.
+
+\subsection*{Expect Minimax}
+The dice does not only introduce problems with pruning but also
+disturbs the simple layering of the game tree. According to the Expect
+Minimax~\cite{wiki:expectMinimax}, which is the standard method to cope
+with randomization, one would have to introduce dice layers as can be seen in
+Figure~\vref{fig:treesearch:randomLayers}. These chance layers
+simulate the changes opposed by the random component. In practice a
+dice is seldom fair. Sometimes the differences of its probabilities
+are astonishing and a player could very well draw advantage from
+them. Therefore \rockNroll does not assume the dice to be fair but
+allows any artificial setting of the dice probabilities $p_1 \ldots p_6$.
+The value of dice nodes is defined as the dot product of their
+child node vectors with the dice probabilities.
+
+\subsection*{Dicing Layer Reduction}
+
+Imagine a position situation like the one in figure
+\vref{fig:einSteinKeyPoints:med} where a player has only few pieces
+left. Most of the six branches of the random node would lead to the
+same possible moves (in this case the three and four). Obviously this
+leads to an immense overhead because equal positions are repeatedly
+assessed. I have therefore thought of a method to
+eliminate the dice layers and alongside with them the redundant
+computation. The central idea is to replace the dice node's averaging-
+and the player's maximizing-operator by a new, unified one (see Figure
+\vref{fig:treesearch:randomLayersRemoval}). Its main steps are:
+
+\begin{figure} 
+\centering
+\subfigure[Expect Minimax] {
+  \label{fig:treesearch:randomLayers}
+  \includegraphics[scale=0.60]{diagrams/treesearchRandomLayers}
+}
+\hspace{0.2cm}
+\subfigure[Unified Operator] {
+  \label{fig:treesearch:randomLayersGone}
+  \includegraphics[scale=0.60]{diagrams/treesearchRandomLayersGone}
+}
+\caption[Dicing Layer
+Reduction]{\label{fig:treesearch:randomLayersRemoval} Removal of
+  chance layers from the Expect Minimax algorithm by using my Unified
+  Operator.}
+\end{figure}
+
+\begin{enumerate}
+\item For each of the current player's stones on the board every
+  possible move is rated. Since they are all unique, no redundant
+  calculation is done.
+\item Each stone has at most three different possibilities to
+  move. From them the best one according to the ratings is selected.
+\item The dice layer is now simulated bottom up. For each number one
+  could dice, the stones one could play are determined. From those the
+  best one is chosen using the values from step two. This yields the
+  ratings $r_1 \ldots r_6$. 
+\item Now best moves for every dice result are known and the final
+  rating $R$ is derived by multiplying the ratings $r_1 \ldots r_6$ with
+  the dice probabilities $p_1 \ldots p_6$: 
+  \begin{equation*}
+    R = \sum\limits_{i=1}^{6} r_ip_i
+  \end{equation*}
+\end{enumerate}
+
+\subsection*{Hash Maps}
+\label{subsec:hashMaps}
+Still, there is redundancy the unified operator alone can not avoid:
+Different sequences of moves often lead to the same positions -- which
+would be evaluated twice or more. The common countermeasure to this is
+to use a cache to store the recent evaluations. The cache is an
+associative map of keys (the positions on the board) and values
+(their ratings). It has to provide only the two operations insert and
+lookup. Hash maps (or hash tables) can perform both in $O(1)$, which
+is optimal. Hash maps outperform binary trees ($O(\log n)$ access
+cost) in this application by allowing more operations for the keys.
+These are used to generate a function $f(key) \mapsto \mathbb{N}$
+which is called a hash function.  By storing the data in a simple
+array the $O(1)$ access costs are realized. The index is provided by
+the hash function.
+
+For hash maps there are alway two problems to be solved:
+\begin{itemize}
+\item Which hash function should be chosen?
+\item How are collisions handled?
+\end{itemize}
+
+In the literature many generic hash functions can be found and I have
+tried out many of then, including $\mod$ a prime number, some
+homebrewn, and the golden ratio. However, none seemed satisfying.
+Some caused too many collisions -- bad distribution -- while
+others spread well but took so long to compute that the performance
+gain was absorbed. The solution was to introduce XOR-Hashing\footnote{XOR
+stands for eXclusive OR. It is also named Zobrist Hashing (after its
+developer) and the standard technique in chess programs since the
+1970s.}. The hash value $\hash(p)$ of a given
+position $p$ in a game (i.e. positions of all pieces on the board) is
+calculated by XORing values assigned to the positions the pieces
+occupy:
+\begin{itemize}
+\item The hash being used can store up to $n$ elements.
+\item Let $\mathcal{S}$ be the set of stones on the board.
+\item $\mathcal{B}$ is the set of positions the board consists of.
+\item $\position: \mathcal{S} \mapsto \mathcal{B}$ yields the position
+  of a given stone.
+\item $\hashWord: \mathcal{S}\times\mathcal{B} \mapsto \mathbb{N}$ is a
+  table filled at program startup with random integers. 
+\item From this we obtain:
+  \begin{eqnarray*}
+    \hash(p) &=& \underset{s \in \mathcal{S}}{\xor}
+    \left(\hashWord\left(s, \position\left(s\right)\right)\right) \mod n
+  \end{eqnarray*}
+\end{itemize}
+Thanks to the straightforward nature of the XOR hash function, a hash
+value for a node in the game tree can be derived from its predecessor
+(note that one needs the value before applying the $\mod$ operator) by
+XORing out the old position of the moving stone(s) and XORing in the
+new one. The probability for two different position to collide in a
+hash of size $n$ is -- when using decent random numbers -- is equal to
+$1/n$.
+
+Usually the number of positions to be stored in the hash is much
+larger than the size of the hash map, which is limited by the physical
+RAM of the computer. When an index collision occurs one has to decide
+which entry is more valuable. The most prominent heuristics for this
+decision are:
+\begin{description}
+\item[Recently Used] prefers the youngest boards. It assumes that the
+  occurrence of equal positions happens in a short interval. This is
+  true for the lower regions of the search tree but requires frequent
+  reevaluation of positions in the upper branches since their value
+  will most likely be kicked out of the cache.
+\item[Remaining Search Depth] stores the element which represents the
+  larger subtree. Larger (i.e. higher) subtrees are favored because
+  they are more expensive to compute. However, in lower branches the
+  cache is rendered ineffective because it is filled up with valuable,
+  but currently useless, entries from the upper levels.
+\end{description}
+
+From modern chess programs like Shredder \rockNroll has adopted a
+hybrid strategy. Those make the best out of both heuristics by using
+two tables: the first acts according to Remaining Search Depth and, if
+it rejects a new entry, it is forwarded to the second Recently Used
+map. Due to their nature I will refer to the first map as the
+\emph{upper} and to the second as the \emph{lower} map.
+
+As a special case, a stepping counter has to be stored in each hash
+entry. The counter is updated for each tree search. This enables the
+safe deallocation of old entries while still being able to profit from
+them. Table flushes are also unnecessary. 
+
+Looking at the hash maps it might seem that the effort laid in
+optimizing the unified operator above was superfluous. It was not. The
+operator significantly reduces the load on the hash maps and their
+required size and that is important since the a computer is always
+short of memory bandwidth and size.
+
+Figure~\vref{fig:treesearchImplementation} summarizes the workflow of
+\rockNrolls Minimax variation.
+
+\begin{figure} 
+\centering
+ \includegraphics[width=\linewidth]{diagrams/treesearchImplementation}
+\caption[\rockNrolls Minimax
+Flowchart]{\label{fig:treesearchImplementation} \rockNrolls Minimax
+  flowchart shows the main tasks that have to be accomplished per
+  node. Much effort is made to prevent the execution of the right
+  block which contains the recursive branch. GAME\_WON is a constant
+  with a large value (currently 1000). This causes the algorithm to
+  choose sure wins over probable ones.}
+\end{figure}
+
+
+
+\section{\textbf{The Monte Carlo Method}}
+Monte Carlo Methods (MCMs) are a class of algorithms which employ
+random numbers during the computation. They are distinguished from the
+Las Vegas algorithms. While Las Vegas algorithms always yield an
+deterministic result of a randomized way of computation (to avoid
+worst case situations during the computation), MCMs perform their
+calculation is a (structurally) deterministic way and yield
+non-deterministic results (read: estimates).
+
+The probably best known method is Direct
+Simulation where a random variable $X$ is constructed such that the
+expected value $E(X)$ equals the value to be calculated. By repeatedly
+creating instances of the variable its expectancy value is estimated.
+Behind this is the hope that creating instances of $X$ can be done
+very fast which leads to both, a good and cheap approximation of
+$E(X)$.
+
+In this special case I want to estimate how good a certain move on
+the board is. Its quality is equal to the win probability. This
+probability is hard to calculate, so a quick experiment is conducted:
+Two primitive players -- e.g. acting according to a simple heuristic
+-- finish the game repeatedly. The intention is that the percentage of
+games won by the primitive players converge to the probability in a
+real game.
+
+The advantage of this approach is that much knowledge about the long
+term development of the game is gathered. Its drawback is that it
+might miss some tactical considerations due to the simple nature of
+the simulated players. 
+
+\section{\textbf{Heuristics}}
+Heuristics are a very widespread field, many functions ranging from
+rules of thumb to neural networks pass for that. Whichever function is
+chosen, the idea behind is always the same: Trade accuracy for speed.
+That's clearly a tough tradeoff and thus good heuristics are hard to
+find.
+
+\subsection*{Random Moves}
+\label{subsec:randomMoves}
+On the other, hand \emph{bad} heuristics are easily found. Rating
+positions by random values seems ridiculous. It is. But nevertheless
+this heuristic is important for comparing the benchmark results and
+having a starting point. That can be seen in the Chapter
+\vnameref{chap:benchmarks}.
+
+\subsection*{Schwarz  Tables}
+\label{subsec:schwarz}
+Stefan Schwarz came up with the first heuristic to evaluate positions.
+It abstracts from the concrete position by only considering for each
+stone its distance to the goal. For each player the expected number of
+remaining moves -- while leaving piece capturing and the enemy's
+stones aside -- is calculated. The difference of the two values (for
+both players) gives the heuristic rating of the position.
+
+The naive approach to calculate the remaining moves would use a (time
+wasting) recursive algorithm. This can be improved. Ignoring win
+positions, each stone can only take on one of five distances: 1, 2,
+3, 4 and $\infty$ (i.e. off board). Having six stones, there are at
+most $5^6 = 15625$ different parameter sets -- perfectly suitable for a
+lookup table. Figure~\vref{fig:schwarzExamples} shows some examples
+for the ``remaining moves'' calculation.
+
+\begin{figure} 
+  \centering
+  \include{diagrams/schwarzExamples/examples}
+  \caption[Examples for the Schwarz Tables
+  Heuristic]{\label{fig:schwarzExamples} Here are some examples for
+    the Schwarz Tables. Only Red's stones are displayed. His goal is
+    to reach the lower right corner. $r$ denotes the remaining moves
+    for him according to the heuristic.}
+\end{figure}
+
+\subsection*{FarmerBoy}
+\label{subsec:farmerBoy}
+While Stefan's heuristic is pretty accurate, it still requires a
+number of unpredictable branches for the distance calculation. Modern
+CPUs depend on accurate branch prediction to fill their long pipelines
+they require due to their high performance clocks. Random branches
+often result in pipeline flushes and spoil the performance. Thus I
+conceived another, more classical heuristic. It rates positions
+according to the average value of the occupied fields. The name
+FarmerBoy comes from this work on fields. Fields nearer to the goal
+get a higher value. More formally:
+\begin{enumerate}
+\item Let $\mathcal{S}_{red}$ and $\mathcal{S}_{blu}$ be the set of
+  stones on the board for each of the players.
+\item $\mathcal{B}$ is the set of positions the board consists of.
+\item $\position: \mathcal{S} \mapsto \mathcal{B}$ yields the position
+  of a given stone.
+\item $\fieldRatings: \mathcal{B} \mapsto \mathbb{R}$ returns the
+  (artificial) values assigned to fields.
+\item A board's $\rating$ is defined as:
+  \begin{eqnarray*}
+    \rating &=& \left(\frac{1}{|\mathcal{S}_{red}|} \sum_{r \in
+        \mathcal{S}_{red}} \fieldRatings(\position(r))\right) 
+    - \left(\frac{1}{|\mathcal{S}_{blu}|} \sum_{r \in
+        \mathcal{S}_{blu}} \fieldRatings(\position(r))\right)
+  \end{eqnarray*}
+\end{enumerate}
+This heuristic requires just some multiply-add operations -- for
+which, thanks to MMX, 3DNow!, and SSE, todays ALUs are well suited --
+and two divisions. The intent is to give up a bit of quality to
+gain improved performance.
+
+\chapter{\textbf{Infrastructure}}
+\label{chap:infrastructure}
+To prepare the implementation undertaken in Chapter
+\vref{chap:implementation}, this chapter will explain which tools
+have been used and why.
+
+One of the first decisions to make is the choice of the implementation
+language. Sadly there is no supreme language for every use case -- and
+there will probably never be one -- so I had to make my choice
+depending on the requirements. Here is a list of the most important
+ones:
+
+\begin{itemize}
+\item Execution performance to increase the prediction quality (see
+  Section \vnameref{sec:minimax}).
+\item Rich expressiveness of the language to reduce complexity.
+\item Cross-platform support to run on an end user's Windows desktop
+  as well as on my Linux development machine or the testbed on the
+  JETI-CL cluster.
+\item Memory access performance to make efficient use of the hash map
+  advantages.
+\end{itemize}
+
+As the base language I have chosen C++. It has roughly the same
+efficience as C and is both, slightly faster and more expressive, than
+Java. Higher level languages such as Lisp or Ruby have been discarded
+on account of being too slow and Assembler was rejected for being a
+hell to code in.
+
+The graphical user interface has been written using Qt from Trolltech;
+further details are given in Chapter
+\vnameref{chap:guiImplementation}. Besides, Qt provides all the
+classes for the engine which are platform dependent and not part of
+the standard library.
+
+To automate the testing during the development cycle, unit tests were
+written using CxxTest~\cite{cxxtest}. This framework allows the coder
+to write very slick and precise test cases and generates the auxiliary
+code using a Perl script. A comparison of many similar frameworks is
+given in~\cite{unitTests}. Automatic tests are only useful when the
+rest of the build cycle is also automated. For the engine Make has
+been used because of its well adaptation to C++ and Qt's QMake. 
+
+This report is written using \LaTeX\  from the TeTeX
+distribution~\cite{tetex}.  The data taken from the various measurements is
+parsed by some Ruby~\cite{ruby} scripts and plotted for the diagrams
+using Gnuplot~\cite{gnuplot}. Every figure and table derived from
+measurements is created completely automatically from the data files by the
+build tool. This requires a considerable amount of scripting and
+therefore Make was discarded for the report and replaced by
+Rake~\cite{rake}
+
+A unified storage for the whole source code was provided by
+Subversion~\cite{subversion}. It is a version control system that
+allowed to keep the code consistent, no matter if the development took
+place on the cluster, on my desktop or on a mobile Windows notebook.
+
+\chapter{\textbf{AI Implementation}}
+\label{chap:implementation}
+So far the algorithms were presented from a theoretical point of
+view. In this chapter the transformation from mathematical concepts
+into live code is explained. The main objective is to create both,
+comprehensible and efficient source code.
+
+I have approached this by using an evolutionary prototype. At first it
+implemented just the most basic use cases (i.e. algorithms) and got
+equipped with the more advanced ones during the term. This agile
+development allowed clean code and easy refactoring to integrate new
+features (of which I came to know most just during the term in which
+the implementation took place).
+ 
+A good heuristic for breaking down the requirements is to divide them
+according to real world metaphors. A game consists of the board, the
+stones, and two players. In more sophisticated games or when dealing
+with rude players also a referee handling details as setting up the
+board, watching who's on the move etc. becomes necessary.
+
+A bad thing to do would be to create a class for every tiny piece of
+information. There could be classes like \verb§RedStoneNo2§,
+\verb§FieldB3§ or \verb§CapturingRule32§. This \emph{sounds} like
+modular, single minded code. But it would also be bloated and --
+because of the sheer mass of classes -- hard to comprehend. The
+programmer would be tacked in his own fen of classes.  Another bad
+thing would be to glue everything together into one monolithic class.
+The best solution must be somewhere in between.
+
+Figure~\vref{fig:classDia} shows the class diagram. First I will have
+a glance at the most important classes before taking the in-depth tour
+in the following sections.  The \verb§Board§ class encapsulates the
+playing field, the stones, and the rules according to which the stones
+are moved across the fields. A \verb§Player§ is an object which can
+decide upon a move to take. Subclasses are \verb§StdInPlayer§ -- a
+human interface -- and \verb§AIPlayer§.  \verb§AIPlayer§ (Artificial
+Intelligence Player) is the parent class of all computer players and
+implements the Expect Minimax from Section~\vref{sec:minimax}.  At
+a first glance it might be striking that all the other approaches for
+player AIs are subclasses of \verb§AIPlayer§, but at a second glance
+it becomes obvious that they all have one thing in common: They map
+boards to numbers describing their value. Therefore each of them can be
+used with the Minimaxing algorithm as a kind of heuristic. The result
+is a building set of players where the behavior and strength of a
+player depends on the building blocks employed during its
+construction.
+
+\begin{figure} 
+  \centering
+  \includegraphics[scale=0.65]{diagrams/classDia}
+  \caption[Class Diagram]{\label{fig:classDia}\rockNrolls main
+    classes and methods. Abstract items are set in
+    \textit{italics}. Utility classes and helper methods have been left
+    out.}
+\end{figure}
+
+\section{\textbf{Board}}
+\board entirely encapsulates the field, the stones, and their movement.
+In its move generator the rules of the game are embedded. It is
+perhaps the central class since most others operate on it.
+
+There are two possibilities to store the stones' positions on the
+field: An array of stones where each element contains a field or an
+array of fields where each element denotes which stone -- if any --
+occupies it. The former has the drawback that it is expensive to detect
+piece capturing during a move (one would have to iterate through all of
+the stones). The later suffers from the same problem when deciding which
+pieces are allowed to move: Every field has to be searched for the
+stone it contains. During tests both have proven to be way too slow, so
+I have implemented a dualistic approach by storing both. This has the
+drawback that for every move both data structures are updated,
+but the saved iterations still make this a bargain. The process of
+enumerating each directly succeeding board is set up by calling
+\verb§initGetSucc()§ and propelled by
+\verb§getNextSucc()§. The main steps are:
+\begin{enumerate}
+\item \verb§initGetSucc()§ looks up the table entry containing
+  the sequence of legal moves.
+\item For each successor \verb§getNextSucc()§ calls
+  \verb§move()§:
+  \begin{enumerate}
+  \item Allocate a new board from the \verb§BoardFactory§.
+  \item Clone the board's data to the new one. Mind that it is always
+    assumed that player Red is on the move so one has to
+    flip the data (exchange players) while copying it.
+  \item Move the stone according to the lookup table.
+  \item Detect if the goal corner has been reached.
+  \item Update \verb§movesBlu§ if one of the edges was encountered.
+  \item Remove any stricken pieces and detect if the opponents last
+    piece has been removed.
+  \item Correct the board's hash key.
+  \item Return the new board.
+  \end{enumerate}
+\end{enumerate}
+
+The methods \verb§winRed()§ and \verb§winBlue()§ detect terminal
+positions while \verb§getPosRed()§ and \verb§getPosBlu()§ provide
+access to the positions of the stones on the board.
+
+\section{\textbf{Player}}
+The second abstraction from the real game is the player. It
+incorporates a way of playing the game. \player itself is an
+abstract class. Subclasses have to implement the abstract method
+\verb§getNextMove()§.
+
+\section{\textbf{StdInPlayer}}
+\label{sec:stdInPlayer}
+\texttt{StdInPlayer} was first introduced for testing purposes. It
+prints out the current board to the standard output and reads a move
+to return from the standard input (stdin).
+
+\section{\textbf{AIPlayer}}
+\label{sec:aiplayer}
+\texttt{AIPlayer} implements the Minimax algorithm in its helper
+method \verb§_rateBoard()§. The class itself remains abstract. It is up
+to the subclasses to implement the rating heuristic \verb§rateBoard()§
+for the leaves. The behavior of the game tree search can be modified
+by setting parameters in the constructor. 
+\begin{itemize}
+\item \verb§depth§ sets the maximum search depth. If one wants to
+  perform iterative deepening, he can override this by calling
+  \verb§setMaxDepth()§ with an increasing parameter first and
+  \verb§getNextMove()§ second.
+  This results in constantly improving results of \verb§getNextMove()§.
+\item The number of entries stored by the upper and lower hash maps is
+  controlled by \verb§hashSizeHi§ and \verb§hashSizeLo§.
+\item Finally \verb§_probs§ sets the assumed probabilities of the
+  dice.
+\end{itemize}
+
+\subsection*{\blackBox{MrRandom(depth)}}
+\texttt{MrRandom} implements the Random Moves heuristic from Section
+\vref{subsec:randomMoves} by assigning random values to the cutoff
+leaves. It depends on the random number generator from
+\vref{sec:mersenne}. 
+
+\subsection*{\blackBox{MrBlack(depth)}}
+From its name it is easy to guess that \texttt{MrBlack} makes use of
+the Schwarz Tables (see~\vref{subsec:schwarz}). Its implementation of
+\verb§rateBoard()§ calculates the distance of each stone from its
+goal. The resulting six dimensional vectors for each player are used
+to lookup the expected remaining distance in the
+\verb§MrBlack::remMoves§ table. The difference of both values is
+scaled up to better match averaging effects when going up the game
+tree and being mixed with win or lose positions.
+\verb§MrBlack::remMoves§ is a static table, so it is shared by every
+\texttt{MrBlack} instance. This has the benefit that just little space
+in the CPU's caches is consumed and it has to be initialized only
+once when the engine is being loaded.
+
+\subsection*{\blackBox{FarmerBoy(depth)}}
+Rivaling \texttt{MrBlack}, this class depends on my much simpler
+heuristic from page \pageref{subsec:farmerBoy}.
+Figure~\vref{fig:farmerBoyRatings} shows the ratings being applied to
+the fields.
+
+\begin{figure} 
+  \centering
+  \include{diagrams/farmerBoyRatings/ratings}
+  \caption[FarmerBoy Ratings]{\label{fig:farmerBoyRatings} FarmerBoy
+    field ratings for player Red.}
+\end{figure}
+
+\subsection*{\blackBox{MrMonte(depth, iterations, red, blu)}}
+\texttt{MrMonte} provides an interface to the Monte Carlo Method. What
+might seem strange is that it is a subclass of \texttt{AIPlayer} which
+implements game tree search. The reason for this is simple: The result
+of the MCM is a float approximating the win probability. This can very
+well be fed into the game tree search as a kind of super
+heuristic. Beside the parameters for its superclass, \verb§MrMonte§'s
+constructor takes the following parameters:
+\begin{description}
+\item[iterations] sets the number of simulation runs. The higher this
+  value is, the lesser random artifacts will become and the longer it
+  will take.
+\item[red] is a pointer to the object which will be treated as player
+  Red and
+\item[blu] is the corresponding object for the blue player. The
+  smarter those players are, the closer the simulation will match
+  reality. Note that when one knows his opponent, he can exploit this
+  using an asymmetric setup where the opponent's simulation player is
+  matched to his real playing style.
+
+  If this parameter is left out, it is assumed to be equal to \verb§red§.
+\end{description}
+
+In chapter~\vref{chap:benchmarks} I will investigate if it is more
+desirable to increase the \texttt{iterations} or the \texttt{depth} or even
+use smarter simulation players.
+
+\section{\textbf{Referee}}
+So far the \texttt{Board} class, which encapsulates the move rules,
+and the \texttt{Player} classes containing strategies were explained.
+\texttt{Referee} arranges a smooth interaction between the
+\texttt{Player} objects and provides basic batch testing capabilities.
+While \verb§run()§ conducts a single game between the given
+\texttt{Player}s starting with the specified \texttt{Board},
+\verb§multiRun()§ runs a given number of games. It comes in two
+flavors: Either each game starts with the same board (useful for
+\texttt{MrMonte}) or with a random starting board (good for comparing
+players). \verb§multiRun()§ returns the number of games Red has won.
+
+\section{\textbf{BoardFactory}}
+One of the most error prone tasks a coder has to handle is memory
+management. Modern languages such as Java, Python etc. come with a
+garbage collector (GC) build in and even for C++ Hans Boehm has
+released a GC. This relieves the programmer from a great burden but
+also has the drawback that when a great number of object with a short
+life time are created, the load generated by the GC becomes
+inacceptable. Even worse, the number of cache misses in the CPU
+increases because at first free memory is allocated -- it is hardly
+possible for the GC to detect unused objects instantly. Conversely,
+data structures like the call stack achieve very good hit rates while
+being easy to use. Not all of the \texttt{Board}s used in the engine
+can live on the stack; some are used as return values and others are
+stored longer than the creating procedure is executed.
+
+The \texttt{BoardFactory} takes care of the memory management for the
+boards. It mimics the built-in stack by providing two methods:
+\begin{itemize}
+\item \verb§popBoard()§ returns a pointer to a new board and via
+\item \verb§pushBoard()§ an old one can be given back. 
+\end{itemize}
+Old boards are stored on a stack and are not freed. \verb§popBoard()§
+will return the top element of this stack and only allocate a new
+board if the stack is empty. The result is a high cache hit rate in
+the CPU's 1st and 2nd level caches and -- since the amount of
+necessary boards usually reaches a saturation value quickly -- a low
+load on the standard library's \verb§malloc()§ facility.
+
+\section{\textbf{RandGen}}
+\label{sec:mersenne}
+The quality and performance of every MCM depends upon the employed
+random number generator. Defining the exact qualities a decent
+generator should have would fill several pages, therefore only the
+most important features are given:
+\begin{itemize}
+\item long period and
+\item high-dimensional equidistribution to avoid simulation artifacts,
+  and 
+\item efficient computability for performance.
+\end{itemize}
+Internally \texttt{RandGen} relies on the Mersenne Twister by Takuji
+Nishimura and Makoto Matsumoto. This pseudo-random number generator
+has a period of $2^{19937} - 1$ and outperforms e.g. Linux' standard
+generator by the factor two (on my desktop $\approx 72899400 \text{
+  numbers}/s$ vs. $\approx 36283000 \text{ numbers}/s$).
+
+Externally a \texttt{RandGen} object behaves like a virtual dice with
+configurable ``fairness'': the probabilities of the numbers generated
+in \verb§getDiceVal()§ can be tweaked in the constructor. This is
+realized by inverting the distribution function and applying the
+equidistribution. The generator can be re-seeded by
+\verb§initGenRand()§.
+
+\section{\textbf{HashMap}}
+In \vnameref{subsec:hashMaps} the hashing algorithm itself was
+explained. Its implementation is straightforward. A large array of
+structs is allocated. Each struct has the following fields:
+\begin{description}
+\item[id] is a unique board identifier derived from the board positions,
+\item[rating] is the stored rating,
+\item[stepping] specifies the entries ``generation'', and
+\item[remDepth] gives the remaining search depth used when evaluating
+  the board.
+\end{description}
+
+\section{\textbf{ThreadWrapper}}
+\rockNroll is designed as a cross-platform program. Most parts of the
+engine are not platform dependent. However, for a clean iterative
+deepening implementation one would have to use threads. The Windows
+thread model differs from Linux' model. To hide these differences,
+\verb§ThreadWrapper§ provides a unified interface behind which
+different bindings can be used according to the current platform.
+
+The external method \verb§concurrentExecute()§ allows to start a given
+function in the background. The internal implementation can be
+automatically switched on demand during the build process.
+
+\chapter{\textbf{Benchmarks}}
+\label{chap:benchmarks}
+Every good engine needs a drop of oil on its bearings and \rockNroll
+is no exception. In this chapter a brief overview is given, how to
+tweak the parameters and make \rockNroll play really strong. Parameter
+sweeps consume a lot of computing power -- much more than my PC could
+offer in reasonable time -- therefore most of the tests were run on
+the JETI-CL Cluster.
+
+\section[\textbf{Optimal Setup of Stones}]{\textbf{Optimal Setup of Stones on the EinStein Board}}
+\label{sec:optimalSetup}
+So far a lot has been dealt with deciding which move to take. But a
+pressing topic has been left out: How to set up the board? Does it
+matter how the stones are placed or can some strength be drawn from
+special setups? To answer these questions I ran a little tournament,
+testing each of the initial setups against each other.
+
+Ignoring symmetries, there are obviously $6! = 720$ starting positions
+for each player and thus $720^2 = 518400$ pairings when considering
+both. With each of these pairings 20 games were simulated, leading to
+a total number of 10368000 simulated games. As simulation players two
+copies of \verb§MrMonte(0, 200, MrBlack(0))§ have been used. They
+provide acceptable playing strength while keeping time consumption
+within reasonable limits.
+
+A quasi-lexicographic ordering of the 720 setups can be obtained by
+enumerating every permutation of the six starting fields. 
+
+The number of games in which a specific setup won divided by the total
+number of games it took part in yields a good estimate for the real
+win probability. A plot of every setup against its win probability
+can be seen in Figure~\vref{fig:startPosFull}. The advantage of
+beginning the game is eliminated in the plot because each setup
+belonged to the starting player the same number of games.
+
+Two observations can be made:
+\begin{itemize}
+\item The start setup greatly affects the chances (ranging from 42\%
+  up to 56\%).
+\item Despite the drop between 500 and 600, the quasi-lexicographic
+  ordering doesn't tell much about the quality of a given setup. 
+\end{itemize}
+
+To get to know the characteristics of \emph{good} and \emph{bad}
+setups, Figures~\vref{fig:startPosBest} and~\vref{fig:startPosWorst}
+show the sixteen best and worst positions according to the previous
+plot \ref{fig:startPosFull}. The observable range is surprising: With
+a clever setup, the odds against an equally strong playing opponent
+who's choosing a random board can be risen by $6\%$ while a bad setup
+can cost even a bit more.
+
+Now some patterns can be observed; the most obvious is that it seems
+to be a good idea to keep the 1 and the 6 in the background
+(preferably to capture the 2 or 5). Placing them in the 1st line
+(especially side by side) doesn't look like a survival trait.
+
+\begin{figure} 
+\centering
+\include{diagrams/optimalStartingPosition/fullPlot}
+\caption[Complete Plot of Start
+Positions]{\label{fig:startPosFull}Each plus stands for the measured
+  probability to win with the setup belonging to the given ordering
+  number against another random board. The diffuse spreading of the
+  plusses shows that the choice of the right setup is vital for the
+  further success (see~\vref{sec:optimalSetup}).}
+\end{figure}
+
+\begin{figure} 
+\centering
+\include{diagrams/optimalStartingPosition/best}
+\caption[Best starting positions]{\label{fig:startPosBest}Best
+  starting positions; the number in brackets is the position's
+  quasi-lexicographic index, the percentage denotes the probability to
+  win against another randomly chosen position (see
+  Section~\vref{sec:optimalSetup}).}
+\end{figure}
+
+\begin{figure} 
+\centering
+\include{diagrams/optimalStartingPosition/worst}
+\caption[Worst starting positions]{\label{fig:startPosWorst}Worst
+  starting positions; the number in brackets is the position's
+  quasi-lexicographic index, the percentage denotes the probability to
+  win against another randomly chosen position (see
+  Section~\vref{sec:optimalSetup}).}
+\end{figure}
+
+\section{\textbf{Tournament}}
+\label{sec:tournament}
+
+\zitat{Premature optimization is the root of all evil...}{Donald
+  Knuth, Computer Programming as an Art}
+
+It is hard to guess the optimal parameters to create an optimal
+computer player. To bring light to this speculative topic, I have
+conducted a large tournament. The participants were 24 different
+parameter sets. I have tried to represent the most important
+variations of search depth and heuristics. The
+tables~\vref{fig:tournament1} and \vref{fig:tournament2} show the
+whole mass of results. However, they are merely meant for reference.
+For a quick overview, please have a look at
+Table~\vref{fig:tournamentSummary} which summarizes them.
+
+\subsection*{Measurement Details}
+As seen in \vnameref{sec:optimalSetup} it is important to choose a
+good starting position carefully as the odds may be moved by 6\% up or
+down. On the one hand choosing a purely random starting positions
+seems to be bad because it might upset the tournaments results. On the
+other hand choosing just one (e.g. the best) or a symmetric setup
+might bear unknown inbreeding problems. And of course it would be
+unrealistic to assume that players would play with boards which are
+known to be worse than others.Therefore each pair in the tournament
+plays with $16^2$ different setups. They are formed by the
+combinations of the 16 best starting positions from Figure
+\vref{fig:startPosBest}.
+
+To even out the advantage of being the first player each game was
+played twice: one time Red began, another time Blue.
+
+Finally, to increase the quality of the samples even more, the whole
+tournament has been repeated 20 times.  From this we derive the
+distribution properties of the table samples $p_{ij}$:
+\begin{eqnarray*}
+  n &=& \underbrace{2}_{\text{start
+      flip}}\cdot\underbrace{16\cdot16}_{\text{setups}}\cdot\underbrace{20}_{\text{repeats}} = 10240\\  
+  p_{ijk} &=& \text{Result of $k$th game between players $i$ and $j$}\\
+  p_{ij} &=& \frac{1}{n}\sum^{n}_{k=1} p_{ijk}\\
+  V(p_{ijk}) &=& p_{ijk} - p_{ijk}^2\\
+  V(p_{ij}) &=& \frac{n}{n^2} V(p_{ijk}) = \frac{p_{ijk} -
+    p_{ijk}^2}{n}\\  
+  \sigma_{ij} &=& \sqrt{V(p_{ij})} = \frac{\sqrt{p_{ijk} -
+    p_{ijk}^2}}{\sqrt{n}}\\    
+\end{eqnarray*}
+
+According to the 95\% confidence interval rule the exact values should
+lie within a $4\sigma_{ij}$ broad interval around the samples. For
+instance the players 6 and 18 are roughly equally strong. We yield
+$p_{6 18} \approx 49.93 \% = 0.4993$ and $\sigma_{6 18} = 0.00494$ and
+therefore the real value lies with a likelihood of 95\% in the
+interval $[48.94, 50.92]$.
+
+\subsection*{Parameter Choices and Interpretations}
+The choice of the right parameter sets for the players was a hard
+tradeoff. I tried to cover the most interesting combinations, generate
+as strong players as possible, and still keep all of them simple
+enough to raise the sample quality by increasing the repeats. 
+
+The exact analysis is left to the reader, as this is not the scope of
+this report -- I just had to find out which is the best one.  However,
+I will outline, why which parameter sets have been chosen and what I
+have concluded from them.
+
+In the afore mentioned tables the use of the \verb§MrRandom§ player
+becomes obvious: The better another player competes against
+\verb§MrRandom§, the better it will probably play against others.
+
+With the \verb§MrMonte§ players 2 to 5 I have tried to figure out how
+many repeats would be necessary to get reliable results. As one can
+see, more than 100 repeats result in only marginal improvements.
+
+The \verb§MrMonte§ players 6 and 7 differ in the place where they
+perform the tree search. I was interested if one should rather rely on
+smarter, more realistic simulations, like player 7 or try to think
+further ahead like player 6.  They are nearly up to par, but not
+quite: There is a slight advantage for player 6.
+
+The players 8 to 12 investigate, if and if so, how much, an increased
+search depth improves the quality of the \verb§MrBlack§ heuristic. The
+players 13 to 17 do the same for the \verb§FarmerBoy§ heuristic. It is
+a bit disappointing for me, although not unexpected, to see that
+\verb§MrBlack§ proves to be the stronger player. Really disappointing
+was to see that there was no measurable speedup by using the simpler
+\verb§FarmerBoy§ heuristic. At least the results show that deep
+searches significantly improve the player's strength, although there
+is a saturation at higher depths.
+
+No. 18 and 19 went in as mavericks, but their results surprised me.
+They trade accuracy of the MCM for increased search depth. Before I
+had seen the results, I expected them to perform rather bad because
+their MCMs rely on only few repeats. Obviously those artifacts are
+mitigated by the Expect Minimax algorithms. Even better: The increased
+depth allows the players to discover at least simple tactical
+combinations.  The result is that player 19 is the strongest player of
+the whole tournament, although he consumes about as little CPU power
+as No. 6 or 7.
+
+Player 20 was another (failed) attempt to improve \verb§MrMonte§ by using
+not a simple heuristic for the simulated players but using another
+\verb§MrMonte§ himself. Although this spoils a lot of performance, the
+results are not really convincing. This is most likely caused by the
+low repetition factors one can use in such a setup.
+
+The last pack of players (21 to 24) doesn't differ so much from the
+2nd pack (2 to 5), except that they use the \verb§FarmerBoy§
+heuristic for their simulations. From the results above one should
+expect that they should be slightly worse than those relying on
+Schwarz Tables. Funnily, the opposite is the case: In essence they
+tend to perform a little bit better.
+
+\begin{landscape}
+  \begin{table}[htp]
+    \caption[Full Tournament, Part 1]{\label{fig:tournament1} Tournament Part 1; the entries
+      denote the rounded win percentages of the row player versus the column
+      player. The main diagonal is indicated by dashes.}
+    \centering\small
+    \include{diagrams/tournament/fullPart1}
+  \end{table} 
+  \begin{table}[htp]
+    \caption[Full Tournament, Part 2]{\label{fig:tournament2} Tournament Part 2; the entries
+      denote the rounded win percentages of the row player versus the column
+      player. The main diagonal is indicated by dashes.}
+    \centering\small
+    \include{diagrams/tournament/fullPart2}
+  \end{table} 
+  \begin{table}[htp]
+    \caption[Tournament Summary]{\label{fig:tournamentSummary} Tournament Summary; the
+      symbols stand for the win percentages $p$ of the row players against
+      the column player: $\ominus$ if $p \le 45\%$, $\oplus$ if      
+      $p \ge 55\%$ and $\bullet$ else. The main diagonal is
+      hinted by dashes.}
+    \centering\small
+    \include{diagrams/tournament/summary}
+  \end{table} 
+\end{landscape}
+
+\section{\textbf{Tweaking the Hash Map Size}}
+\label{sec:hashSize}
+In \ref{subsec:hashMaps} hash maps were discussed to speed up the
+Minimax algorithm. Their success relies on the fact that memory
+access is usually much cheaper than reevaluating a whole subtree.
+Modern computers are equiped with a number of layered caches. Their
+purpose is to mitigate the effects of the interconnection crisis
+according to which there is a constantly growing gap between the CPUs
+internal performance and external bandwidth. On the one hand, when the
+hash map's size is increased, fewer boards need to be reevaluated. But
+on the other, the efficience of the cache memories is degraded. To
+evaluate these contrary effects, I have run a short benchmark. It
+consisted of a \verb§MrBlack(6)§ performing a tree search beginning
+with a fixed starting position. It used an upper hash map of
+variable size and no lower hash map. Figure~\vref{fig:hashSize} allows
+four interesting observations:
+
+\begin{itemize}
+\item An increase of the hash map can dramatically improve the
+  performance.
+\item A map with less than 1024 entries does hardly improve
+  performance.
+\item Beginning with $2^{23}$ entries, the search requires more
+  time. At this size, the simulation machine began swapping out memory
+  pages because its main memory was filled up. Hard disks are some
+  magnitudes slower than RAM, which caused the whole simulation to run
+  slower.
+\item Contrary to all expectations, there are nearly no observable
+  CPU-cache effects. There is just a slight bend upwards between
+  $2^{14}$ and $2^{16}$ entries, which drops again afterwards. This is
+  about the size when the hash map didn't fit anymore into the second
+  level cache of the simulation machine and was moved to the RAM.
+\end{itemize}
+
+\begin{figure} 
+\centering
+\include{diagrams/hashSize/plot}
+\caption[Runtime vs. has map size]{\label{fig:hashSize}Benchmark
+  runtimes depending on the hash map size. See Section~\vref{sec:hashSize}. }
+\end{figure}
+
+Judging from the measurement results, the hash map should be as large
+as possible, but not larger than the computer's RAM can host.
+
+\chapter{\textbf{GUI Implementation}}
+\label{chap:guiImplementation}
+The engine itself was designed from a performance and coding
+perspective. Soon it became obvious that the simple interface offered
+by \verb§StdInPlayer§ (see section~\vref{sec:stdInPlayer}) was not
+convenient as a human interface. For a user (like me) it was to hard
+to continuously translate the machine's display. I knew that during
+the final match (Chapter~\vref{chap:roadMap}) we would play with a
+limited supply of time. I didn't want to waste the precious time for
+handling the computer input/output but use it for real computations.
+
+Therefore I decided to code a simple graphical user interface (GUI).
+Figure~\vref{fig:screenShot} shows a screen shot. It is based on
+Trolltech's Qt Toolkit~\cite{qt} and written in C++, just like the
+engine. Qt has been recently re-released under a free license, too.
+It has the advantage of integrating seamlessly into the engine's build
+process, being reasonably fast and solving the cross-platform problem
+for the GUI. Its widgets integrate smoothly into a platform's standard
+widget set and so a Qt Application looks like a native Windows
+application under Windows and like a real Linux program when compiled
+for Linux.
+
+\begin{figure} 
+\centering
+\includegraphics[width=\linewidth]{diagrams/screenShot}
+\caption[\rockNroll Screenshot]{\label{fig:screenShot}\rockNroll
+  GUI Screenshot in mid-game. The red player has thrown a 3 and may
+  now decide on three different fields to move to.}
+\end{figure}
+
+
+Most of the GUI's classes are widgets. According to the state of the
+game they have to alter their behavior; internally they are implemented
+as finite state machines. Simple machines can be coded with
+switch/case statements in the methods to control the objects behavior.
+However, when the objects become more and more complex, maintaining
+the methods can become a real pain. \rockNrolls widgets are
+implemented according to the State Pattern~\cite{designPatterns}.
+Similar to the Delegate Pattern the State Pattern equips an object A
+with a background object B. All method calls are forwarded to this
+object. When A is required to alter its state, the background object
+B is replaced by another one representing the new state.
+
+This makes it possible to maintain a states source in a dedicated
+class at one place (high cohesion) and to introduce new states without
+meddling in the others (low coupling). Sub-states are modeled as
+sub-classes of their super-states. 
+
+The internal communication infrastructure of the GUI is based on the
+Observer Pattern~\cite{designPatterns}. The internal state of the game
+is encapsulated in a single object and the observing objects (players,
+dice-widgets, chat boxes etc.) are notified if anything interesting
+happens.
+
+
+
+\chapter{\textbf{Outlook}}
+Although the project itself is finished as a universitary project,
+\rockNroll is far from being dead. Here are some points I hope to
+cover in the near future:
+
+\begin{itemize}
+\item The GUI is not at all perfect. One reason for this is that,
+  despite all the tricks used, static languages like C++ are not
+  really suitable when it comes to implementing state charts. This is
+  because they can not \emph{really} change the class of an object but
+  have to rely on error prone, hard-to-maintain multiway switch
+  statements. Currently an advanced GUI is being developed using
+  the Ruby language for the state machines, Qt bindings for the
+  widgets and the proven C++ engine.
+\item Theo van der Storm has extended the Schwarz Tables by replacing
+  the simple number of expected moves remaining with a probability
+  distribution. This allows a higher precision of the heuristic. 
+  \rockNroll is not yet equipped with this heuristic.
+\item The hash maps can still be further optimized. For one it could
+  be tried to use two maps of different size or use just one map with
+  a higher associativity and an advanced replacement strategy. This
+  could be e.g. a combination of ``least recently used'' and
+  ``remaining search depth''.
+\item For the end game situations, where typically a rather small
+  number of pieces remains on the board, the optimal moves could be
+  chosen from a database.
+\item Today, \rockNroll is not the only EinStein program
+  anymore. There are many competitors, numbered in temporal order of
+  their occurrence:
+  \begin{enumerate}
+  \item Hanfried   by Jörg Sameith and Stefan Schwarz (Jena),
+  \item MeinStein  by Theo van der Storm (Amsterdam),
+  \item Jonny      by Johannes Zwanzger  (Bayreuth),
+  \item Jazzio     by Munjong Kolss (Friborg, CH),
+  \item Hubbie     by Hubert Baumgarten  (Hannover),
+  \item Chess77    by Eiko Bleicher      (Berlin),
+  \item Fraggle    by Ingo Schwab        (Bonn),
+  \item NoName by Lars Bremer (Hannover).
+  \end{enumerate}
+  It would be interesting to find out, who's best and learn from each
+  other by arranging a tournament.
+\end{itemize}
+
+% iterative deepening
+
+% zeit bedarf cluster vs. zuhause bei benchmarks einfügen
+
+% is there any way to improve hashes by increasing their associativity?
+% Are there SIMD mnemonics to exploit for this? Candidate No. 1: pcmpeqb/w/d
+
+% unfaire würfel sind auch simulierbar
+
+
+% quotes from wikiquote
+
+
+\appendix
+
+\chapter{\textbf{References}}
+\label{chap:references}
+
+\bibliographystyle{alpha}
+\begin{btSect}{www}
+  \section{\textbf{Bibliography}}
+  \btPrintCited
+\end{btSect}
+
+\ifx\onlineMode\undefined
+\section{\textbf{CD Contents}}
+Here is an overview of the files on the included CD. Directories have
+a trailing slash ``/''.
+
+\begin{tabular}{lp{10.3cm}}
+  \toprule
+  \multicolumn{1}{c}{File}   & \multicolumn{1}{c}{Description}\\
+  \cmidrule(r){1-1} \cmidrule(l){2-2}
+  \verb§rockNrollPrint.pdf§    & This document\\
+  \verb§rockNrollOnline.pdf§   & The document version meant for online publishing\\
+  \verb§rockNroll/§            & A Windows binary release of the GUI
+  and engine for instant testing. This version was also used during
+  the final match against Stefan.\\
+  \verb§trunk/§                & The complete source code of the project\\
+  \verb§trunk/cxxtest/§        & Vendor sources of the CxxTest unit
+  testing framework\\
+  \verb§trunk/database/§       & Preliminary sources for the end game database\\
+  \verb§trunk/engine/§         & The engine's C++ source files\\
+  \verb§trunk/gui/§            & GUI source code\\
+  \verb§trunk/misc/§           & Miscellaneous files of the build system\\
+  \verb§trunk/paper/§          & The \LaTeX\ sources and measurement
+  results for this document.\\
+  \verb§trunk/shellinterface/§ & The interface used for batch tests on
+  both my development machine and the cluster\\
+  \verb§trunk/testsuites/§     & The engine's test suites for use with
+  CxxTest\\
+  \verb§trunk/Makefile§        & In the \verb§Makefile§ the top level
+  rules for the engine's build system are defined.\\
+  \bottomrule
+\end{tabular}
+
+%\layout
+
+\fi
+
+
+\end{document}
+
+% LocalWords:  stdin Makoto Matsumoto Nishimura Takuji Mersenne TeTeX

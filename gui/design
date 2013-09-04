@@ -1,0 +1,58 @@
+board
+  initialize(fields[], onTheMove = :red)
+  initialize2(redPlayer[], bluePlayer2[], onTheMove = :red)
+  fields()
+  pos(player)
+  successors()
+  succeeds?(predecessor)
+
+game
+  initialize(board, player1, player2, timingData?)
+  initialize2(game)
+  initialize3(dumpString)
+  start()
+  stop()
+  back(howMany)
+  frwd(howMany)
+  sendGameEvent(event)
+    (will send the event to all enlisted spectators (including the
+  players). see gameEvent sub-classes for description of events )
+  spectators
+  enlistSpectator(spec)
+  removeSpectator(spec)
+  id
+  dump
+    (perhaps we'll need a special format here so that all the stupid
+    coders can catch up, e.g. XML)
+
+spectator
+  recvGameEvent(e)
+
+gameEvent
+
+chatEvent <- gameEvent
+  message
+
+gameStatusChange <- gameEvent
+  state
+    (may be "stopped", "running" or "finished")
+
+player <- spectator
+  move(board)
+  confirm?(message)
+    (this is a means for the the game class to verify, if a certain
+    action shall really be performed (e.g. someone wants to undo a
+    move - then the game will ask /both/ players for confirmation
+    (when a player requested the undo, the gui might hide the
+    resulting confirm? from him since his answer is obvious). for 
+    the gui player: presents the message in a yes/no 
+    dialogue. returns true is yes has been selected, no else. an
+    aiplayer might always return true.)
+
+aiplayer <- player
+
+guiplayer <- player
+
+netplayer <- player
+  (acts as a proxy for a network attached player on the server side -
+  where the game resides)

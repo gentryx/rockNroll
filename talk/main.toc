@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.01pt}
+\select@language {ngerman}
+\beamer@sectionintoc {2}{Introduction to EinStein}{6}{0}{1}
+\beamer@subsectionintoc {2}{1}{The Rules}{6}{0}{1}
+\beamer@sectionintoc {3}{Engine Algorithms}{11}{0}{2}
+\beamer@subsectionintoc {3}{1}{Heuristics}{11}{0}{2}
+\beamer@subsectionintoc {3}{2}{Minimax}{15}{0}{2}
+\beamer@subsectionintoc {3}{3}{Monte Carlo Method}{20}{0}{2}
+\beamer@sectionintoc {4}{Benchmarks}{22}{0}{3}
+\beamer@subsectionintoc {4}{1}{Best Parameter Sets}{22}{0}{3}
+\beamer@subsectionintoc {4}{2}{Optimal Starting Position}{24}{0}{3}
+\beamer@sectionintoc {5}{Summary}{27}{0}{4}

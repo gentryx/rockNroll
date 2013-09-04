@@ -1,0 +1,13 @@
+task :default => :unitTests
+
+task :unitTests => "rocknroll.rb" do 
+  sh "ruby unitTests.rb"
+end
+
+task :main => "rocknroll.rb" do 
+  sh "ruby main.rb"
+end
+
+file "rocknroll.rb" => "rocknroll.ui" do |t|
+  sh "rbuic rocknroll.ui -p 2 -o rocknroll.rb"
+end

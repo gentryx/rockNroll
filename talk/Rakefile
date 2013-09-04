@@ -1,0 +1,5 @@
+task :default => :talk
+
+task :talk do
+  sh "rubber --pdf main.tex"
+end

@@ -1,0 +1,5 @@
+/var/spool/sge/jeti-cl/carmen/job_scripts/49218: line 3: 26868 CPU time limit exceeded (core dumped) ./tournament $1 $2 $3
+
+real	65m17.170s
+user	30m57.340s
+sys	29m2.889s

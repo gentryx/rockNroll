@@ -1,0 +1,5 @@
+/var/spool/sge/jeti-cl/amun4/job_scripts/49599: line 3: 30136 CPU time limit exceeded (core dumped) ./tournament $1 $2 $3
+
+real	67m20.042s
+user	60m0.185s
+sys	0m0.044s

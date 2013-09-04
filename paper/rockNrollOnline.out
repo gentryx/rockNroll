@@ -1,0 +1,25 @@
+\BOOKMARK [0][-]{chapter.1}{Road Map}{}
+\BOOKMARK [0][-]{chapter.2}{Introduction to the Game}{}
+\BOOKMARK [0][-]{chapter.3}{Engine Design}{}
+\BOOKMARK [1][-]{section.3.1}{Minimax}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{The Monte Carlo Method}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Heuristics}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{Infrastructure}{}
+\BOOKMARK [0][-]{chapter.5}{AI Implementation}{}
+\BOOKMARK [1][-]{section.5.1}{Board}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{Player}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{StdInPlayer}{chapter.5}
+\BOOKMARK [1][-]{section.5.4}{AIPlayer}{chapter.5}
+\BOOKMARK [1][-]{section.5.5}{Referee}{chapter.5}
+\BOOKMARK [1][-]{section.5.6}{BoardFactory}{chapter.5}
+\BOOKMARK [1][-]{section.5.7}{RandGen}{chapter.5}
+\BOOKMARK [1][-]{section.5.8}{HashMap}{chapter.5}
+\BOOKMARK [1][-]{section.5.9}{ThreadWrapper}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{Benchmarks}{}
+\BOOKMARK [1][-]{section.6.1}{Optimal Setup of Stones}{chapter.6}
+\BOOKMARK [1][-]{section.6.2}{Tournament}{chapter.6}
+\BOOKMARK [1][-]{section.6.3}{Tweaking the Hash Map Size}{chapter.6}
+\BOOKMARK [0][-]{chapter.7}{GUI Implementation}{}
+\BOOKMARK [0][-]{chapter.8}{Outlook}{}
+\BOOKMARK [0][-]{appendix.A}{References}{}
+\BOOKMARK [1][-]{section.A.1}{Bibliography}{appendix.A}

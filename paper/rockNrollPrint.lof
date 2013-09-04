@@ -1,0 +1,65 @@
+\select@language {english}
+\select@language {english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces EinStein Key Points}}{12}{figure.2.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Red places his stones in the six upper left fields, Blue uses the lower right fields. Their goals lie in the opposite corners. Each player has to move in one of the three directions towards his goal.}}}{12}{figure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {A typical start setting. Red rolled a six and may now either capture his three, capture his five or move to the free field diagonally below.}}}{12}{figure.2.1}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Here is an advanced game. The dice shows a three which Blue has already lost. Her adjacent numbers on the board are the two and five. Her legal moves are indicated by the arrows.}}}{12}{figure.2.1}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {It payed off for Blue to move the two. After Red moved his three directly before his goal, she rolled a two and won the game.}}}{12}{figure.2.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Minimax Basics}}{14}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces From Minimax to Max Only}}{14}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Dicing Layer Reduction}}{16}{figure.3.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Expect Minimax}}}{16}{figure.3.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Unified Operator}}}{16}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Rock'n'Roll's Minimax Flowchart}}{19}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Examples for the Schwarz Tables Heuristic}}{21}{figure.3.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$r=4$}}}{21}{figure.3.5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$r=\frac {5}{6} \cdot 1 + \frac {1}{6} \cdot 2 = \frac {7}{6}$}}}{21}{figure.3.5}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Class Diagram}}{26}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces FarmerBoy Ratings}}{29}{figure.5.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$r=4$}}}{29}{figure.5.2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Complete Plot of Start Positions}}{34}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Best starting positions}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$p(405)=56.056\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$p(431)=56.021\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$p(92)=55.913\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$p(83)=55.903\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$p(87)=55.865\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$p(167)=55.861\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$p(227)=55.837\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$p(63)=55.795\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {$p(40)=55.785\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {$p(65)=55.750\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {$p(16)=55.736\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(l)}{\ignorespaces {$p(407)=55.611\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(m)}{\ignorespaces {$p(57)=55.604\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(n)}{\ignorespaces {$p(395)=55.583\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(o)}{\ignorespaces {$p(81)=55.562\%$}}}{35}{figure.6.2}
+\contentsline {subfigure}{\numberline {(p)}{\ignorespaces {$p(116)=55.555\%$}}}{35}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Worst starting positions}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$p(338)=42.175\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$p(648)=42.446\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$p(517)=42.776\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$p(559)=42.783\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$p(558)=42.797\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$p(650)=42.977\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$p(506)=43.057\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$p(348)=43.082\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {$p(342)=43.151\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {$p(636)=43.227\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {$p(507)=43.273\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(l)}{\ignorespaces {$p(516)=43.314\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(m)}{\ignorespaces {$p(336)=43.321\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(n)}{\ignorespaces {$p(295)=43.332\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(o)}{\ignorespaces {$p(654)=43.373\%$}}}{36}{figure.6.3}
+\contentsline {subfigure}{\numberline {(p)}{\ignorespaces {$p(552)=43.391\%$}}}{36}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Runtime vs. has map size}}{44}{figure.6.4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Rock'n'Roll Screenshot}}{46}{figure.7.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,0 +1,5 @@
+/var/spool/sge/jeti-cl/heidi/job_scripts/49367: line 3: 25104 CPU time limit exceeded (core dumped) ./tournament $1 $2 $3
+
+real	62m19.535s
+user	60m0.193s
+sys	0m0.032s

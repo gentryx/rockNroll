@@ -1,0 +1,24 @@
+INCLUDE_PATHS = "-I ./ -I ../"
+GPP_FLAGS     = "-pipe -Wall -W -O2                  -pipe -fkeep-inline-functions"
+GPP_COMMAND   = "g++ #{GPP_FLAGS} #{INCLUDE_PATHS}"
+
+def gpp(infile, outfile)
+  sh "#{GPP_COMMAND} #{infile} -o #{outfile}"
+end
+
+task :default => :unitTests do |t|
+  gpp("main.cpp", "main")
+
+  sh "rm -f foo.boo"
+  sh "touch foo.boo"
+  sh "./main"
+  sh "rm -f foo.boo"
+end
+
+task :unitTests do |t|
+  sh "../cxxtest/cxxtestgen.pl -o testsuites.cpp --error-printer testsuites.h"
+  gpp("testsuites.cpp", "testsuites")
+  sh "rm -f foo.boo*"
+  sh "./testsuites"
+#  sh "rm -f foo.boo*"
+end

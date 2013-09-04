@@ -1,0 +1,5 @@
+/var/spool/sge/jeti-cl/anne/job_scripts/49604: line 3: 30780 CPU time limit exceeded (core dumped) ./tournament $1 $2 $3
+
+real	67m18.317s
+user	59m59.889s
+sys	0m0.336s
