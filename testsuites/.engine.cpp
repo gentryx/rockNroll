@@ -14,12 +14,12 @@
 int main() {
  return CxxTest::ErrorPrinter().run();
 }
-#include "../testsuites/engine.h"
+#include "./testsuites/engine.h"
 
 static MersenneTestSuite suite_MersenneTestSuite;
 
 static CxxTest::List Tests_MersenneTestSuite = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_MersenneTestSuite( "../testsuites/engine.h", 82, "MersenneTestSuite", suite_MersenneTestSuite, Tests_MersenneTestSuite );
+CxxTest::StaticSuiteDescription suiteDescription_MersenneTestSuite( "./testsuites/engine.h", 82, "MersenneTestSuite", suite_MersenneTestSuite, Tests_MersenneTestSuite );
 
 static class TestDescription_MersenneTestSuite_testGetDiceVal : public CxxTest::RealTestDescription {
 public:
@@ -42,7 +42,7 @@ public:
 static MrBlackTestSuite suite_MrBlackTestSuite;
 
 static CxxTest::List Tests_MrBlackTestSuite = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_MrBlackTestSuite( "../testsuites/engine.h", 179, "MrBlackTestSuite", suite_MrBlackTestSuite, Tests_MrBlackTestSuite );
+CxxTest::StaticSuiteDescription suiteDescription_MrBlackTestSuite( "./testsuites/engine.h", 179, "MrBlackTestSuite", suite_MrBlackTestSuite, Tests_MrBlackTestSuite );
 
 static class TestDescription_MrBlackTestSuite_testRemMoves : public CxxTest::RealTestDescription {
 public:
@@ -53,7 +53,7 @@ public:
 static BoardTestSuite suite_BoardTestSuite;
 
 static CxxTest::List Tests_BoardTestSuite = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_BoardTestSuite( "../testsuites/engine.h", 300, "BoardTestSuite", suite_BoardTestSuite, Tests_BoardTestSuite );
+CxxTest::StaticSuiteDescription suiteDescription_BoardTestSuite( "./testsuites/engine.h", 300, "BoardTestSuite", suite_BoardTestSuite, Tests_BoardTestSuite );
 
 static class TestDescription_BoardTestSuite_testHashWords : public CxxTest::RealTestDescription {
 public:
@@ -88,7 +88,7 @@ public:
 static AIPlayerTestSuite suite_AIPlayerTestSuite;
 
 static CxxTest::List Tests_AIPlayerTestSuite = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_AIPlayerTestSuite( "../testsuites/engine.h", 559, "AIPlayerTestSuite", suite_AIPlayerTestSuite, Tests_AIPlayerTestSuite );
+CxxTest::StaticSuiteDescription suiteDescription_AIPlayerTestSuite( "./testsuites/engine.h", 559, "AIPlayerTestSuite", suite_AIPlayerTestSuite, Tests_AIPlayerTestSuite );
 
 static class TestDescription_AIPlayerTestSuite_testBoard2ID : public CxxTest::RealTestDescription {
 public:
@@ -105,7 +105,7 @@ public:
 static FarmerBoyTestSuite suite_FarmerBoyTestSuite;
 
 static CxxTest::List Tests_FarmerBoyTestSuite = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_FarmerBoyTestSuite( "../testsuites/engine.h", 676, "FarmerBoyTestSuite", suite_FarmerBoyTestSuite, Tests_FarmerBoyTestSuite );
+CxxTest::StaticSuiteDescription suiteDescription_FarmerBoyTestSuite( "./testsuites/engine.h", 676, "FarmerBoyTestSuite", suite_FarmerBoyTestSuite, Tests_FarmerBoyTestSuite );
 
 static class TestDescription_FarmerBoyTestSuite_testRating : public CxxTest::RealTestDescription {
 public:
@@ -116,7 +116,7 @@ public:
 static EmptyTestSuite suite_EmptyTestSuite;
 
 static CxxTest::List Tests_EmptyTestSuite = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_EmptyTestSuite( "../testsuites/engine.h", 720, "EmptyTestSuite", suite_EmptyTestSuite, Tests_EmptyTestSuite );
+CxxTest::StaticSuiteDescription suiteDescription_EmptyTestSuite( "./testsuites/engine.h", 720, "EmptyTestSuite", suite_EmptyTestSuite, Tests_EmptyTestSuite );
 
 static class TestDescription_EmptyTestSuite_testAddition : public CxxTest::RealTestDescription {
 public:

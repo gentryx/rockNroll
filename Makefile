@@ -43,9 +43,9 @@ endif
 CXX      = g++
 #LEX      = flex
 #YACC     = yacc
-#CFLAGS   = -pipe -Wall -W -O2 -march=athlon-xp -pipe -DQT_THREAD_SUPPORT -DQT_NO_DEBUG
-CXXFLAGS = -c -pipe -Wall -W          -O2 -march=athlon-xp -pipe -fkeep-inline-functions -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DQT_CLEAN_NAMESPACE
-#CXXFLAGS =   -pipe -Wall -W -Winline -O2 -march=athlon-xp -pipe -fkeep-inline-functions -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DQT_CLEAN_NAMESPACE 
+#CFLAGS   = -pipe -Wall -W -O2 -march=native -pipe -DQT_THREAD_SUPPORT -DQT_NO_DEBUG
+CXXFLAGS = -c -pipe -Wall -W          -O2 -march=native -pipe -fkeep-inline-functions -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DQT_CLEAN_NAMESPACE
+#CXXFLAGS =   -pipe -Wall -W -Winline -O2 -march=native -pipe -fkeep-inline-functions -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DQT_CLEAN_NAMESPACE 
 #LEXFLAGS = 
 #YACCFLAGS= -d
 INCPATH  = -I/usr/qt/3/mkspecs/linux-g++ -I$(QTDIR)/include
